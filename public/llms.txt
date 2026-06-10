@@ -1,0 +1,43 @@
+# Grumpy Pixels
+
+> Grumpy Pixels is a web design and development studio in Malaysia. We build fast, beautiful, SEO-friendly websites for growing businesses using modern frameworks such as Next.js. Tagline: "We build websites. Then we complain about them until they're great."
+
+## Services
+
+- Web design: custom UI/UX, mobile-first layouts, design systems
+- Web development: Next.js and React builds, custom websites, Shopify storefronts
+- Website revamp: redesigns, migrations, content restructuring for outdated websites
+- Performance and SEO: Core Web Vitals optimization, technical SEO, speed audits
+
+## Pricing (Malaysian Ringgit)
+
+- Launch (RM5,000–RM10,000): custom small business website, 2–4 weeks. Custom design, mobile-first, technical SEO foundations, performance optimization.
+- Grow (RM10,000–RM25,000): growth-focused website, 4–8 weeks. SEO architecture, blog and CMS, conversion optimization, analytics.
+- Scale (RM25,000+): custom platforms — portals, e-commerce, dashboards, integrations. Scoped per project.
+- Full guide: /pricing
+
+## Industries served (Malaysia)
+
+- Clinic website design (medical, dental, aesthetic): /web-design/clinics
+- Restaurant and cafe website design: /web-design/restaurants
+- Law firm website design: /web-design/law-firms
+- Property agency website design: /web-design/property-agencies
+- Gym and fitness studio website design: /web-design/gyms
+- Tuition centre website design: /web-design/tuition-centres
+
+## Selected work
+
+- MAPACS ASC 2026 (event.mapacs.co): congress website for the Malaysian Association of Plastic, Aesthetic and Craniomaxillofacial Surgeons, built on Shopify with e-commerce for registration tickets and merchandise.
+- PersonEdge (personedge.vercel.app): marketing site for a Kuala Lumpur creative agency, built with Next.js, Payload CMS and Neon Postgres.
+
+## Pages
+
+- Home: /
+- Work and case studies: /work
+- Pricing guide ("How much does a website cost in Malaysia?"): /pricing
+
+## Contact
+
+- Email: hello@grumpypixels.my
+- WhatsApp: +60 12-345 6789
+- Area served: Malaysia (remote-friendly)

@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* Brand palette — see brand.md and docs/design-system.md */
+  --color-cream: #fff7f1;
+  --color-navy: #1f2937;
+  --color-navy-soft: #4b5563;
+  --color-purple: #8b7fd7;
+  --color-purple-deep: #6f61c8;
+  --color-lavender: #c7c7ff;
+  --color-lavender-soft: #e9e9ff;
+  --color-blush: #ffd6e0;
+  --color-mint: #cdebd9;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --shadow-soft: 0 8px 30px rgb(31 41 55 / 0.08);
+  --shadow-lift: 0 14px 40px rgb(31 41 55 / 0.12);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Keep pixel-art sprites crisp when scaled */
+.pixelated {
+  image-rendering: pixelated;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--color-lavender);
+  color: var(--color-navy);
 }

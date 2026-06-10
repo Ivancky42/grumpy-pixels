@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Grumpy Pixels
 
-## Getting Started
+Marketing website for **Grumpy Pixels**, a Malaysia-based web design and development studio. Built with Next.js (App Router), TypeScript and Tailwind CSS 4. Fully static, mobile-first, SEO-optimized.
 
-First, run the development server:
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build    # production build
+pnpm start    # serve the production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project map
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | What it is |
+| --- | --- |
+| `brand.md` | Brand guide — voice, mascot rules, palette, typography |
+| `docs/design-system.md` | Tokens, components, responsive rules |
+| `docs/seo.md` | Keyword map, URL structure, structured data |
+| `docs/content.md` | Approved copy for every page |
+| `app/` | Routes: home, `/work`, `/web-design/[industry]`, sitemap, robots |
+| `components/ui/` | Primitives (Button, Card, Container, ...) |
+| `components/site/` | Composed sections (Header, Footer, Hero, Mascot, ...) |
+| `lib/site.ts` | Site config: domain, WhatsApp, email (update before launch) |
+| `lib/industries.ts` | Data for the six industry SEO landing pages |
+| `lib/work.ts` | Case study data (MAPACS, PersonEdge) |
+| `public/brand/` | Mascot sprites and logo lockups |
+| `scripts/process-assets.mjs` | One-off pipeline that produced the brand assets |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Before launch
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Set the real domain, WhatsApp number and email in `lib/site.ts`.
+2. Verify OG preview and favicons.
+3. Run Lighthouse (target: 95+ mobile).
