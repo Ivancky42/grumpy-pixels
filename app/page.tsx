@@ -7,6 +7,7 @@ import { ServiceCard } from "@/components/site/ServiceCard";
 import { StatsRow, speedStats, designStats } from "@/components/site/StatsRow";
 import { SpeedRace } from "@/components/site/SpeedRace";
 import { DesignFlip } from "@/components/site/DesignFlip";
+import { ProjectSlots } from "@/components/site/ProjectSlots";
 import { WorkCard } from "@/components/site/WorkCard";
 import { IndustryCard } from "@/components/site/IndustryCard";
 import { ProcessSteps } from "@/components/site/ProcessSteps";
@@ -189,6 +190,58 @@ export default function Home() {
           />
           <div className="mt-10">
             <ProcessSteps />
+          </div>
+        </Container>
+      </section>
+
+      <section className="py-16 sm:py-24">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <div>
+              <SectionHeading
+                eyebrow="Boutique on purpose"
+                title="Small by design"
+                lede="We intentionally work with a limited number of clients at any given time. Great websites need focus, attention to detail, and direct collaboration — not a production line."
+              />
+              <p className="mt-4 max-w-2xl text-navy-soft">
+                By keeping our pipeline small, we stay hands-on through every
+                stage — from strategy and design to development and launch.
+              </p>
+              <ul className="mt-8 space-y-3">
+                {[
+                  "Direct access to the people building your website",
+                  "Faster feedback and communication",
+                  "Greater attention to detail",
+                  "Higher quality outcomes",
+                  "No outsourcing — everything in-house",
+                ].map((benefit) => (
+                  <li key={benefit} className="flex items-start gap-3">
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-mint">
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-navy"
+                        aria-hidden
+                      >
+                        <path d="M20 6L9 17l-5-5" />
+                      </svg>
+                    </span>
+                    <span className="text-navy-soft">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-8 max-w-2xl border-l-4 border-purple pl-4 font-display text-lg italic text-navy">
+                We&apos;d rather build a few exceptional websites than dozens
+                of average ones.
+              </p>
+            </div>
+            <ProjectSlots />
           </div>
         </Container>
       </section>
