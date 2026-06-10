@@ -14,6 +14,13 @@ export const site = {
   // International format without "+" for the wa.me deep link
   whatsappNumber: "60123456789",
   whatsappDisplay: "+60 12-345 6789",
+  assets: {
+    favicon: "/favicon.ico",
+    icon: "/icon.png",
+    appleIcon: "/apple-icon.png",
+    brandIcon: "/brand/icon.png",
+    openGraph: "/opengraph-image.png",
+  },
 } as const;
 
 export const whatsappLink = (message?: string) =>

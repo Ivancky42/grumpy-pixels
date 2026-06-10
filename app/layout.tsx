@@ -17,6 +17,20 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
 });
 
+const openGraphImage = {
+  url: site.assets.openGraph,
+  width: 1200,
+  height: 630,
+  alt: site.title,
+} as const;
+
+const brandIconImage = {
+  url: site.assets.brandIcon,
+  width: 512,
+  height: 512,
+  alt: `${site.name} icon`,
+} as const;
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -24,14 +38,32 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  icons: {
+    icon: [
+      { url: site.assets.favicon, sizes: "48x48" },
+      { url: site.assets.icon, type: "image/png", sizes: "512x512" },
+    ],
+    apple: {
+      url: site.assets.appleIcon,
+      sizes: "180x180",
+      type: "image/png",
+    },
+    shortcut: site.assets.favicon,
+  },
   openGraph: {
     type: "website",
     siteName: site.name,
     locale: site.locale,
     url: site.url,
+    title: site.title,
+    description: site.description,
+    images: [openGraphImage, brandIconImage],
   },
   twitter: {
     card: "summary_large_image",
+    title: site.title,
+    description: site.description,
+    images: [openGraphImage],
   },
 };
 
@@ -52,8 +84,8 @@ export default function RootLayout({
             "@type": "ProfessionalService",
             name: site.name,
             url: site.url,
-            logo: `${site.url}/brand/icon.png`,
-            image: `${site.url}/opengraph-image.png`,
+            logo: `${site.url}${site.assets.brandIcon}`,
+            image: `${site.url}${site.assets.openGraph}`,
             description: site.description,
             email: site.email,
             priceRange: "RM5,000 - RM25,000+",
