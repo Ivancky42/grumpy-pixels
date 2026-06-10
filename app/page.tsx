@@ -5,6 +5,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Hero } from "@/components/site/Hero";
 import { ServiceCard } from "@/components/site/ServiceCard";
 import { StatsRow, speedStats, designStats } from "@/components/site/StatsRow";
+import { SpeedRace } from "@/components/site/SpeedRace";
+import { DesignFlip } from "@/components/site/DesignFlip";
 import { WorkCard } from "@/components/site/WorkCard";
 import { IndustryCard } from "@/components/site/IndustryCard";
 import { ProcessSteps } from "@/components/site/ProcessSteps";
@@ -117,6 +119,9 @@ export default function Home() {
           <div className="mt-10">
             <StatsRow stats={speedStats} />
           </div>
+          <div className="mt-6 sm:mt-8">
+            <SpeedRace />
+          </div>
         </Container>
       </section>
 
@@ -130,12 +135,15 @@ export default function Home() {
           <div className="mt-10">
             <StatsRow stats={designStats} />
           </div>
-          <p className="mt-8 max-w-2xl text-navy-soft">
-            That&apos;s why we design every page to feel considered: clear
-            hierarchy, honest copy, consistent spacing, and details that quietly
-            say <em>these people care</em>. Trust converts — and design is where
-            trust starts.
-          </p>
+          <div className="mt-8 grid gap-8 lg:grid-cols-2 lg:items-center">
+            <p className="max-w-2xl text-navy-soft">
+              That&apos;s why we design every page to feel considered: clear
+              hierarchy, honest copy, consistent spacing, and details that
+              quietly say <em>these people care</em>. Trust converts — and
+              design is where trust starts.
+            </p>
+            <DesignFlip />
+          </div>
         </Container>
       </section>
 
