@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="overflow-hidden py-16 sm:py-24">
       <Container>
-        <div className="grid items-center gap-12 lg:grid-cols-[1.4fr_1fr]">
+        <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
           <div>
             <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-purple">
               Web studio · Malaysia
@@ -18,7 +18,7 @@ export function Hero() {
                 Then we complain about them until they&apos;re great.
               </span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg text-navy-soft">
+            <p className="mt-6 max-w-2xl text-lg text-navy-soft">
               Grumpy Pixels is a web design and development studio in Malaysia.
               We create fast, beautiful, SEO-friendly websites for growing
               businesses — and we sweat the details so you don&apos;t have to.
@@ -34,7 +34,7 @@ export function Hero() {
             <SpeechBubble className="lg:-mr-2">
               That spacing isn&apos;t 24px...
             </SpeechBubble>
-            <Mascot size={360} priority className="drop-shadow-sm" />
+            <Mascot size={200} priority className="drop-shadow-sm" />
           </div>
         </div>
       </Container>
