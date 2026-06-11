@@ -19,11 +19,11 @@ export const projects: Project[] = [
       "Annual Scientific Congress of the Malaysian Association of Plastic, Aesthetic and Craniomaxillofacial Surgeons",
     url: "https://event.mapacs.co/events/asm-2026",
     displayUrl: "event.mapacs.co",
-    tags: ["Event website", "Shopify", "E-commerce"],
+    tags: ["Event website", "Next.js", "Shopify", "E-commerce"],
     problem:
       "Malaysia's national association of plastic surgeons needed a dedicated home for its 29th Annual Scientific Congress in Penang — registration tiers, a three-day programme, international speakers, sponsorship packages and hotel bookings, all in one place.",
     outcome:
-      "A polished congress website built on Shopify, with e-commerce checkout for delegate registration tickets and official merchandise, plus a detailed daily programme, speaker and committee showcases, and sponsorship and accommodation info — everything attendees need before they land in Penang.",
+      "A polished congress website built with Next.js, with Shopify e-commerce checkout for delegate registration tickets and official merchandise, plus a detailed daily programme, speaker and committee showcases, and sponsorship and accommodation info — everything attendees need before they land in Penang.",
     image: "/work/mapacs.png",
     imageAlt:
       "Screenshot of the MAPACS 29th Annual Scientific Congress 2026 event website",
