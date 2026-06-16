@@ -28,13 +28,17 @@ export function CtaBanner({
               </h2>
               <p className="mt-4 text-lg text-lavender">{copy}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button href={whatsappLink(whatsappMessage)}>
-                  WhatsApp us
-                </Button>
+                {site.whatsappEnabled && (
+                  <Button href={whatsappLink(whatsappMessage)}>
+                    WhatsApp us
+                  </Button>
+                )}
                 <Button
                   href={mailtoLink}
-                  variant="secondary"
-                  className="border-transparent"
+                  variant={site.whatsappEnabled ? "secondary" : "primary"}
+                  className={
+                    site.whatsappEnabled ? "border-transparent" : undefined
+                  }
                 >
                   {site.email}
                 </Button>

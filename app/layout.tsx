@@ -90,7 +90,7 @@ export default function RootLayout({
             email: site.email,
             priceRange: "RM5,000 - RM25,000+",
             areaServed: { "@type": "Country", name: "Malaysia" },
-            sameAs: [whatsappLink()],
+            ...(site.whatsappEnabled ? { sameAs: [whatsappLink()] } : {}),
             contactPoint: {
               "@type": "ContactPoint",
               contactType: "sales",

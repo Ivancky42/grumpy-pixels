@@ -84,11 +84,13 @@ export function Footer() {
               Say hello
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
-              <li>
-                <a href={whatsappLink()} className="hover:text-lavender">
-                  WhatsApp {site.whatsappDisplay}
-                </a>
-              </li>
+              {site.whatsappEnabled && (
+                <li>
+                  <a href={whatsappLink()} className="hover:text-lavender">
+                    WhatsApp {site.whatsappDisplay}
+                  </a>
+                </li>
+              )}
               <li>
                 <a href={mailtoLink} className="hover:text-lavender">
                   {site.email}
