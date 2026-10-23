@@ -14,10 +14,9 @@ import { ProcessSteps } from "@/components/site/ProcessSteps";
 import { ServiceFaq } from "@/components/site/ServiceFaq";
 import { SpeedRace } from "@/components/site/SpeedRace";
 import { StatsRow, type Stat } from "@/components/site/StatsRow";
-import { EfficiencyLoop } from "@/components/site/illustrations/EfficiencyLoop";
-import { SeoTrace } from "@/components/site/illustrations/SeoTrace";
+import { serviceVisuals } from "@/components/site/service-visuals";
 import { industries } from "@/lib/industries";
-import { getService, services, type Service } from "@/lib/services";
+import { getService, services } from "@/lib/services";
 import { mailtoWithSubject, site } from "@/lib/site";
 
 type Props = { params: Promise<{ service: string }> };
@@ -58,18 +57,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-function HeroDiagram({ illustration }: { illustration: Service["illustration"] }) {
-  if (illustration === "seo-trace") return <SeoTrace />;
-  if (illustration === "efficiency-loop") return <EfficiencyLoop />;
-  return null;
-}
-
 export default async function ServicePage({ params }: Props) {
   const service = getService((await params).service);
   if (!service) notFound();
 
   const url = `${site.url}/services/${service.slug}`;
-  const isSoftware = service.illustration === "software";
+  const isSoftware = service.slug === "software-development";
+  const { Hero: HeroVisual, Showcase } = serviceVisuals[service.slug];
 
   return (
     <>
@@ -107,12 +101,8 @@ export default async function ServicePage({ params }: Props) {
               { label: service.label },
             ]}
           />
-          <div
-            className={`mt-12 sm:mt-16 ${
-              isSoftware ? "" : "grid items-center gap-12 lg:grid-cols-2"
-            }`}
-          >
-            <div className={isSoftware ? "max-w-3xl" : undefined}>
+          <div className="mt-12 grid items-center gap-12 sm:mt-16 lg:grid-cols-2">
+            <div>
               <Eyebrow>{service.eyebrow}</Eyebrow>
               <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
                 {service.h1}
@@ -140,9 +130,7 @@ export default async function ServicePage({ params }: Props) {
                 )}
               </div>
             </div>
-            {!isSoftware && (
-              <HeroDiagram illustration={service.illustration} />
-            )}
+            <HeroVisual />
           </div>
         </Container>
       </section>
@@ -161,6 +149,8 @@ export default async function ServicePage({ params }: Props) {
           />
         </Container>
       </section>
+
+      {Showcase && <Showcase />}
 
       {/* Software: both diagram cards get their own section */}
       {isSoftware && (

@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow, eyebrowClass } from "@/components/ui/SectionHeading";
 import { Badge } from "@/components/ui/Badge";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { JsonLd } from "@/components/site/JsonLd";
+import { WorkScene } from "@/components/site/illustrations/WorkScene";
+import { ProjectScene } from "@/components/site/illustrations/ProjectScene";
+import { Reveal } from "@/components/site/Reveal";
 import { projects } from "@/lib/work";
 import { site } from "@/lib/site";
 
@@ -35,17 +37,20 @@ export default function WorkPage() {
       />
 
       <section className="py-16 sm:py-24">
-        <Container>
-          <Eyebrow className="mb-3">
-            Our work
-          </Eyebrow>
-          <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
-            Work we&apos;re (almost) happy with
-          </h1>
-          <p className="mt-5 max-w-2xl text-lg text-ink-soft">
-            A selection of recent projects. We focus on outcomes:
-            faster sites, better rankings, more enquiries.
-          </p>
+        <Container className="grid items-center gap-12 lg:grid-cols-2">
+          <div>
+            <Eyebrow className="mb-3">
+              Our work
+            </Eyebrow>
+            <h1 className="max-w-3xl font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
+              Work we&apos;re (almost) happy with
+            </h1>
+            <p className="mt-5 max-w-2xl text-lg text-ink-soft">
+              A selection of recent projects. We focus on outcomes:
+              faster sites, better rankings, more enquiries.
+            </p>
+          </div>
+          <WorkScene className="mx-auto max-w-md lg:max-w-none" />
         </Container>
       </section>
 
@@ -56,23 +61,13 @@ export default function WorkPage() {
               key={project.slug}
               className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12"
             >
-              <a
-                href={project.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group block rounded-3xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet ${i % 2 === 1 ? "lg:order-2" : ""}`}
+              <div
+                className={`rounded-3xl px-4 py-6 sm:px-8 sm:py-8 ${i % 2 === 1 ? "bg-blush/35 lg:order-2" : "bg-lavender-soft/60"}`}
               >
-                <div className="relative aspect-16/10 overflow-hidden rounded-3xl border border-ink/8 bg-lavender-soft shadow-soft transition-shadow group-hover:shadow-lift motion-reduce:transition-none">
-                  <Image
-                    src={project.image}
-                    alt={project.imageAlt}
-                    fill
-                    sizes="(min-width: 1024px) 560px, 100vw"
-                    className="object-cover object-top"
-                    preload={i === 0}
-                  />
-                </div>
-              </a>
+                <Reveal>
+                  <ProjectScene scene={project.scene} size="feature" />
+                </Reveal>
+              </div>
               <div>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
@@ -101,7 +96,7 @@ export default function WorkPage() {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-5 inline-block font-semibold text-violet underline-offset-4 hover:underline"
+                  className="mt-3 inline-flex min-h-11 items-center rounded-sm font-semibold text-violet underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet"
                 >
                   Visit {project.displayUrl} ↗
                 </a>

@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { eyebrowClass } from "@/components/ui/SectionHeading";
+import { PillarSpot } from "@/components/site/illustrations/PillarSpot";
+import { Reveal } from "@/components/site/Reveal";
 import type { Service } from "@/lib/services";
 
 type Props = {
@@ -18,6 +20,11 @@ export function PillarCard({ service, index, headingLevel = "h3" }: Props) {
       href={`/services/${service.slug}`}
       className="group flex w-full flex-col rounded-3xl border border-ink/8 bg-white p-6 shadow-soft transition duration-200 ease-out hover:-translate-y-0.5 hover:shadow-lift focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet motion-reduce:transition-none motion-reduce:hover:translate-y-0 sm:p-8"
     >
+      <div className="mb-6 rounded-2xl bg-lavender-soft/60 px-4 py-3">
+        <Reveal className="mx-auto max-w-xs">
+          <PillarSpot slug={service.slug} />
+        </Reveal>
+      </div>
       <span className={`${eyebrowClass} text-violet`}>
         {String(index + 1).padStart(2, "0")}
       </span>

@@ -6,6 +6,7 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { JsonLd } from "@/components/site/JsonLd";
 import { PillarCard } from "@/components/site/PillarCard";
+import { HubScene } from "@/components/site/illustrations/HubScene";
 import { homeCopy, services } from "@/lib/services";
 import { site } from "@/lib/site";
 
@@ -37,14 +38,17 @@ export default function ServicesPage() {
           <Breadcrumbs
             items={[{ href: "/", label: "Home" }, { label: "Services" }]}
           />
-          <div className="mt-12 max-w-3xl sm:mt-16">
-            <Eyebrow>{homeCopy.pillarsEyebrow}</Eyebrow>
-            <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
-              {homeCopy.pillarsTitle}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-ink-soft">
-              {homeCopy.pillarsLede}
-            </p>
+          <div className="mt-12 grid items-center gap-12 sm:mt-16 lg:grid-cols-2">
+            <div className="max-w-3xl">
+              <Eyebrow>{homeCopy.pillarsEyebrow}</Eyebrow>
+              <h1 className="mt-4 font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
+                {homeCopy.pillarsTitle}
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg text-ink-soft">
+                {homeCopy.pillarsLede}
+              </p>
+            </div>
+            <HubScene className="mx-auto max-w-md lg:max-w-none" />
           </div>
 
           <ul className="mt-14 grid gap-6 lg:grid-cols-3">

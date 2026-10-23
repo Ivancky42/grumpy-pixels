@@ -2,20 +2,9 @@
 
 import { Eyebrow } from "@/components/ui/SectionHeading";
 import { useInView } from "@/lib/use-in-view";
+import { demoDisclaimer, demoTrace } from "@/lib/seo-demo";
 
-const nodes = [
-  {
-    label: "Finding",
-    body: "Page ranks #6 for ‘clinic website design malaysia’. Impressions up 38%, CTR 1.1%.",
-  },
-  {
-    label: "Recommendation",
-    body: "Rewrite title + meta description.",
-    approval: true,
-  },
-  { label: "Change", body: "Title and meta updated · 14 Oct" },
-  { label: "Result", body: "CTR 1.1% → 3.4% · organic clicks +212/mo" },
-] as const;
+const { nodes, summary } = demoTrace;
 
 const STEP_MS = 220;
 
@@ -28,7 +17,7 @@ const STEP_MS = 220;
 export function SeoTrace() {
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.3 });
 
-  const nodeCls = `transition-all duration-500 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${
+  const nodeCls = `transition-[opacity,translate] duration-500 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${
     inView ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
   }`;
   const connectorBase =
@@ -40,14 +29,7 @@ export function SeoTrace() {
         ref={ref}
         className="@container rounded-3xl border border-ink/8 bg-white p-6 shadow-soft sm:p-8"
       >
-        <p className="sr-only">
-          A traced SEO change in four steps. Finding: a page ranks sixth for
-          “clinic website design malaysia”, impressions are up 38% and the
-          click-through rate is 1.1%. Recommendation: rewrite the title and meta
-          description; approved by the client. Change: title and meta updated on
-          14 October. Result: click-through rate rose from 1.1% to 3.4%, with 212
-          more organic clicks a month.
-        </p>
+        <p className="sr-only">{summary}</p>
         <div aria-hidden className="flex flex-col @3xl:flex-row">
           {nodes.map((node, i) => {
             const last = i === nodes.length - 1;
@@ -106,8 +88,8 @@ export function SeoTrace() {
         </div>
       </div>
       <figcaption className="mt-4 max-w-2xl text-sm text-ink-soft">
-        Illustrative example. Every change on Grumpy Pixels SEO is traced from
-        the finding that prompted it to the result it produced.
+        {demoDisclaimer} Every change on Grumpy Pixels SEO is traced from the
+        finding that prompted it to the result it produced.
       </figcaption>
     </figure>
   );

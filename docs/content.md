@@ -89,6 +89,18 @@ Hub and three service pages are rendered from `lib/services.ts`. Edit copy there
 | `/services/seo` | SEO you can audit, not just believe. | SEO Services & Campaign Platform Malaysia \| Grumpy Pixels |
 | `/services/consultancy` | Get more done with the tools you already pay for. | AI & Technology Consultancy Malaysia \| Grumpy Pixels |
 
+### SEO page product tour (/services/seo)
+
+Section "The platform" → title "Grumpy Pixels SEO". The three rows and every number in the mockups come from `lib/seo-demo.ts`. The workspace "Senyum Dental" (senyumdental.example) is fictional, and the caption "Example data — a fictional clinic, not a client." appears with the hero mockup, under the tour heading and in the SeoTrace caption.
+
+| Eyebrow | Title | Body |
+| --- | --- | --- |
+| Overview | Where the campaign stands, on one screen | Findings, recommendations awaiting your approval, changes made and results — all in one workspace you, your team and your partners can open. Every number shows its source and the day it was updated. |
+| Recommendations | Nothing changes without a reason on record | Each finding becomes a recommendation with an expected effect. You approve what goes ahead, we make the change, and the result is tracked back to the finding that prompted it. |
+| Reports | Reporting a board can read in five minutes | A monthly summary of what changed, what it cost and what it returned, written for the person who signs the invoice. |
+
+Consultancy page: a "How it works in practice" section (title = the consultancy navDescription) now holds the efficiency loop diagram after the proof points.
+
 ## Work (/work)
 
 - H1: `Work we're (almost) happy with`

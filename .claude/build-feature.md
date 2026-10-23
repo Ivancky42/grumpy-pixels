@@ -27,6 +27,7 @@ from the October 2026 rebrand run; update it when the facts change.
 - `lib/services.ts` — the three service pillars (copy, metadata, FAQ, CTA) and `homeCopy`
 - `lib/pricing.ts`, `lib/industries.ts`, `lib/work.ts` — page data
 - `components/site/Logo.tsx`, `components/site/LogoDefs.tsx`, `components/site/illustrations/BrowMark.tsx` — the mark (paths pasted from the kit; never edited by agents)
+- `lib/iso.ts`, `components/site/iso/Iso.tsx`, `components/site/Reveal.tsx`, `lib/seo-demo.ts`, `components/site/service-visuals/index.ts` — isometric kit, reveal motion, SEO example data, service-page visual slots
 - `app/manifest.ts`, `app/icon.svg`, `app/favicon.ico`, `app/apple-icon.png`, `app/opengraph-image.png`, `public/brand/*`, `public/icon-*.png`, `public/maskable-512.png`
 - Component APIs that several units consume: `CtaBanner` props, `ProcessSteps` `steps` prop, `ServiceFaq` props, `Breadcrumbs` props, `StatsRow` `stats`/`columns` props
 
@@ -56,11 +57,14 @@ from the October 2026 rebrand run; update it when the facts change.
 - motion: `useInView` from `lib/use-in-view.ts` for reveal-once; `prefersReducedMotion()` from `lib/motion.ts`; every animation has a `motion-reduce:` fallback; never `setState` synchronously inside a `useEffect` body (lint rule `react-hooks/set-state-in-effect`) — set state in the observer/event callback
 - logo: render with `<Logo variant tone className title />`; size with a height class (base is `block w-auto`); never rotate, outline, shadow, mirror or recolour outside the palette
 - metadata per page: `title` (≤ 60 chars; use `title.absolute` when the string already carries the brand), `description` (≤ 160), `alternates.canonical`; a page that sets its own `openGraph` must also set `images` (page-level `openGraph` replaces the layout's and drops `og:image`); JSON-LD via `components/site/JsonLd`; breadcrumbs via `components/site/Breadcrumbs` (emits `BreadcrumbList`)
-- server components by default; `"use client"` only for state/effects (`Header`, `StatsRow`, `SpeedRace`, `DesignFlip`, `ProjectSlots`, `BudgetCalculator`, `SeoTrace`, `EfficiencyLoop`)
+- server components by default; `"use client"` only for state/effects (`Header`, `StatsRow`, `SpeedRace`, `DesignFlip`, `ProjectSlots`, `BudgetCalculator`, `SeoTrace`, `EfficiencyLoop`, `Reveal`)
+- illustrations: isometric only, via the kit — `lib/iso.ts` (`iso`, `points`, `pathD`, `faceMatrix`, `riseDelay`, `ISO_TILE_H`, `ISO_TONES`) and `components/site/iso/Iso.tsx` (`IsoScene`, `IsoGround` — every scene's plate, top at z = 0 — `IsoBox`, `IsoFace`, `IsoTile`, `IsoShadow`); no `<text>` in SVG, no people, never draw the mark; `.rise-in` only on transform-free `<g>`/`IsoBox`; below-fold scenes inside `Reveal`; rules in `docs/design-system.md` §1 "Isometric illustrations"
+- product mockups: SEO screens are coded HTML in `components/site/seo-mockups/` fed only by `lib/seo-demo.ts` (fictional "Senyum Dental"); never real client screenshots or data; always show `demoDisclaimer`
 
 ## Dev servers (`.claude/launch.json` names, or commands)
 - `web` → `pnpm dev`, port 3000
 - desktop-width screenshots: the browser pane is ~550 px wide, so use the cached Playwright Chromium for full-page desktop shots: `~/Library/Caches/ms-playwright/chromium_headless_shell-*/chrome-headless-shell-mac-arm64/chrome-headless-shell --headless --disable-gpu --hide-scrollbars --virtual-time-budget=8000 --window-size=1280,5600 --screenshot=<out.png> http://localhost:3000/<path>` (reveal-on-scroll content looks faded there; check it in the pane)
+- headless shots of iso scenes need `--force-prefers-reduced-motion` (CSS entrances don't finish under virtual time); the browser pane throttles timers/IO when hidden — check `tabs_context` before trusting its screenshots
 - SEO smoke check after changes: fetch each route and assert one `<h1>`, `<link rel="canonical">`, parseable JSON-LD, description ≤ 160; fetch `/sitemap.xml`, `/manifest.webmanifest`, `/opengraph-image.png`, `/llms.txt`
 
 ## Trailing units (appended to every run that touches the surface)

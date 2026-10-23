@@ -11,6 +11,7 @@ import {
 import { BudgetCalculator } from "@/components/site/BudgetCalculator";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { JsonLd } from "@/components/site/JsonLd";
+import { PricingScene } from "@/components/site/illustrations/PricingScene";
 import { ServiceFaq } from "@/components/site/ServiceFaq";
 import { costFactors, marketRanges, pricingFaq, tiers } from "@/lib/pricing";
 import { site } from "@/lib/site";
@@ -59,7 +60,7 @@ export default function PricingPage() {
 
       {/* Hero */}
       <section className="py-16 sm:py-24">
-        <Container>
+        <Container className="grid items-center gap-12 lg:grid-cols-2">
           <div className="max-w-3xl">
             <Eyebrow className="mb-3">Pricing, minus the mystery</Eyebrow>
             <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
@@ -78,6 +79,7 @@ export default function PricingPage() {
               </Button>
             </div>
           </div>
+          <PricingScene className="mx-auto max-w-md lg:max-w-none" />
         </Container>
       </section>
 
