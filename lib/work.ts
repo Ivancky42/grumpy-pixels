@@ -32,8 +32,8 @@ export const projects: Project[] = [
     slug: "personedge",
     title: "PersonEdge",
     subtitle: "A social-first creative agency in Kuala Lumpur",
-    url: "https://personedge.vercel.app",
-    displayUrl: "personedge.vercel.app",
+    url: "https://www.personedge.com",
+    displayUrl: "personedge.com",
     tags: ["Agency website", "Next.js", "Neon", "Payload CMS"],
     problem:
       "An award-winning creative agency needed a site as scroll-stopping as its campaigns — bold, fast, and able to showcase work for brands like Samsung, AIA, TNB and Lazada.",

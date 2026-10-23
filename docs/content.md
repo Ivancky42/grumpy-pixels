@@ -115,7 +115,7 @@ Consultancy page: a "How it works in practice" section (title = the consultancy 
 - Problem: `Malaysia's national association of plastic surgeons needed a dedicated home for its 29th Annual Scientific Congress in Penang — registration tiers, a three-day programme, international speakers, sponsorship packages and hotel bookings, all in one place.`
 - Outcome: `A polished congress website built on Shopify, with e-commerce checkout for delegate registration tickets and official merchandise, plus a detailed daily programme, speaker and committee showcases, and sponsorship and accommodation info — everything attendees need before they land in Penang.`
 
-### PersonEdge — personedge.vercel.app
+### PersonEdge — personedge.com
 
 - Title: `PersonEdge`
 - Subtitle: `A social-first creative agency in Kuala Lumpur`
