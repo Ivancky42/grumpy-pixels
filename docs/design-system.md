@@ -12,49 +12,43 @@ How the brand (see `../brand.md`) translates into code. Tailwind 4 tokens live i
 | Tailwind class | CSS variable | Hex | Usage |
 | --- | --- | --- | --- |
 | `*-cream` | `--color-cream` | `#FFF7F1` | Page background |
-| `*-navy` | `--color-navy` | `#1F2937` | Headings, body text, footer bg |
-| `*-navy-soft` | `--color-navy-soft` | `#4B5563` | Secondary text |
-| `*-purple` | `--color-purple` | `#8B7FD7` | Primary accent, links, buttons |
-| `*-purple-deep` | `--color-purple-deep` | `#6F61C8` | Button hover, emphasis |
-| `*-lavender` | `--color-lavender` | `#C7C7FF` | Tints, icon chips, borders |
-| `*-lavender-soft` | `--color-lavender-soft` | `#E9E9FF` | Card tint backgrounds |
-| `*-blush` | `--color-blush` | `#FFD6E0` | Decorative highlights, badges |
-| `*-mint` | `--color-mint` | `#CDEBD9` | Success accents, alt badges |
+| `*-ink` | `--color-ink` | `#1F2937` | Headings, body text, footer and CTA panel bg |
+| `*-ink-soft` | `--color-ink-soft` | `#4B5563` | Secondary text |
+| `*-violet` | `--color-violet` | `#6F61C8` | Primary accent: links, buttons, eyebrows, diagram strokes |
+| `*-violet-deep` | `--color-violet-deep` | `#5A4DB5` | Button hover/pressed |
+| `*-lavender` | `--color-lavender` | `#8B7FD7` | Logo symbol on ink; large text on ink only |
+| `*-lavender-soft` | `--color-lavender-soft` | `#EEEBFA` | Tints, icon chips, soft panels |
+| `*-blush` | `--color-blush` | `#FFD6E0` | Small callouts |
 
-Contrast rules: body text is `navy` on `cream`/`white` (AA+). Never set long text in
-`purple` smaller than 18px bold. On `navy` surfaces use `cream` text with `lavender` accents.
+Contrast rules: Body text is `ink` on `cream`/`white`. On `ink` surfaces use `cream` (primary), `cream/80` (secondary), `cream/70` (eyebrows, legal); never `lavender` at small sizes. Never set long text in `violet` smaller than 18px bold. Never place violet on lavender.
 
 ### Typography
 
-- Headings: `font-display` → Fraunces, loaded in `app/layout.tsx` via `next/font` as `--font-fraunces`.
+- Headings: `font-display` → Bricolage Grotesque (variable, `opsz` axis), loaded in `app/layout.tsx` via `next/font` as `--font-bricolage`.
 - Body: `font-sans` → Plus Jakarta Sans via `--font-jakarta`.
 
 Scale (mobile → desktop):
 
 | Element | Classes |
 | --- | --- |
-| Hero h1 | `text-4xl sm:text-5xl lg:text-6xl font-display font-semibold` |
-| Section h2 | `text-3xl sm:text-4xl font-display font-semibold` |
-| Card h3 | `text-xl font-display font-semibold` |
-| Body | `text-base` (`text-navy-soft` for secondary) |
-| Eyebrow | `text-sm font-semibold uppercase tracking-widest text-purple` |
+| Hero h1 | `font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.02em] leading-[1.05]` |
+| Section h2 | `font-display text-3xl sm:text-4xl font-bold tracking-[-0.02em] leading-tight` |
+| Card h3 | `font-display text-xl font-bold` |
+| Body | `text-base` (`text-ink-soft` for secondary) |
+| Eyebrow | `text-xs font-semibold uppercase tracking-[0.18em] text-violet` |
+| Big number | `font-display text-4xl font-bold tracking-[-0.02em]` |
 
 ### Shape and depth
 
 - Radii: cards `rounded-3xl`, buttons/pills `rounded-full`, images `rounded-2xl`.
 - Shadows: soft only — `shadow-soft` token (`0 8px 30px rgb(31 41 55 / 0.08)`). No hard shadows.
-- Borders: `border-navy/8` hairlines on white cards.
+- Borders: `border-ink/8` hairlines on white cards.
 
 ### Spacing rhythm
 
-- Section padding: `py-16 sm:py-24`.
+- Section padding: `py-16 sm:py-24` (hero sections `py-20 sm:py-28`).
 - Content container: `Container` component → `mx-auto max-w-6xl px-4 sm:px-6`.
 - Grid gaps: `gap-4 sm:gap-6` for card grids.
-
-### Pixel-art rendering
-
-Mascot images must keep crisp pixels when scaled: use the `pixelated` utility
-(`image-rendering: pixelated`) defined in `globals.css`.
 
 ## 2. Components
 
@@ -63,32 +57,36 @@ Mascot images must keep crisp pixels when scaled: use the `pixelated` utility
 | Component | Notes |
 | --- | --- |
 | `Container` | Max-width wrapper, the only place page gutters are defined. |
-| `Button` | `variant: "primary" \| "secondary" \| "ghost"`, renders `<Link>` when `href` given. Primary = purple bg, white text; secondary = white bg, navy border. |
+| `Button` | `variant: "primary" \| "secondary" \| "ghost"`, renders `<Link>` when `href` is internal. Primary = violet bg, white text; secondary = white bg, ink border; all variants carry the violet focus ring. |
 | `SectionHeading` | Eyebrow + h2 + optional lede paragraph; `align: "left" \| "center"`. |
-| `Card` | White rounded-3xl card with soft shadow; `tint` prop for lavender/blush/mint variants. |
+| `Card` | White rounded-3xl card with soft shadow; `tint: "white" \| "lavender" \| "blush"`. |
 | `Badge` | Small rounded-full pill for labels (tech stack, industries). |
 
 ### `components/site/` — composed sections
 
 | Component | Notes |
 | --- | --- |
-| `Header` | Sticky, cream/blur background, mascot icon + wordmark text, desktop nav + mobile disclosure menu (client component). |
-| `Footer` | Navy background, dark logo treatment, nav links, industry links (SEO internal linking), WhatsApp + email. |
-| `Mascot` | Renders the sprite. `variant: "grumpy" \| "approving"`, `size` prop, pixelated rendering. |
-| `SpeechBubble` | Blush-pink pixel-style bubble with a quip; positions relative to mascot. Use with `Mascot` for the brand moments. |
-| `Hero` | Home hero: headline, supporting copy, dual CTAs, mascot + bubble. |
-| `ServiceCard` | Icon chip + title + copy + bullet list. |
+| `Header` | Sticky, cream/blur, inline logo, desktop nav with accessible Services dropdown + mobile full-screen menu (client component). Reads `lib/navigation.ts`. |
+| `Footer` | Ink background, reversed logo, tagline, Services / Studio / Web design for / Say hello columns incl. SEO platform sign-in. |
+| `Hero` | Home hero: positioning copy from `lib/services.ts` `homeCopy` + `BrowMark`. |
 | `WorkCard` | Screenshot (next/image) + outcome-focused copy + badges. |
 | `IndustryCard` | Link card to an industry landing page. |
-| `ProcessSteps` | 4 numbered steps, horizontal on desktop, stacked on mobile. |
-| `StatsRow` | "Why fast matters" metric tiles. |
-| `CtaBanner` | Navy rounded panel with approving mascot + WhatsApp/email buttons. |
-| `WhatsAppButton` | Green-free brand-styled WhatsApp deep-link button (uses `lib/site.ts`). |
+| `ProcessSteps` | Numbered steps; takes a `steps` prop (service pages pass `howItWorks`). |
+| `StatsRow` | Metric tiles with count-up and reveal; `stats` prop. |
+| `CtaBanner` | Ink rounded panel with email (and optional WhatsApp) CTA; `emailSubject` prop. |
+| `Logo` | Inline-SVG logo lockups from the kit; `variant`, `tone`, `className`, `title`. |
+| `PillarCards` | Three service cards from `lib/services.ts`; used on home. |
+| `Breadcrumbs` | Visual breadcrumb + `BreadcrumbList` JSON-LD. |
+| `ServiceFaq` | `<details>` FAQ accordion from an items list. |
+| `illustrations/BrowMark` | Hero mark assembling with a staggered reveal. |
+| `illustrations/SeoTrace` | Finding → recommendation → change → result diagram, reveals on scroll. |
+| `illustrations/EfficiencyLoop` | Before/after weekly-hours bars, animates on scroll. |
 | `JsonLd` | Renders a `<script type="application/ld+json">` for structured data. |
 
 ### Conventions
 
-- Server components by default; only `Header` (mobile menu state) is a client component.
+- Server components by default; client components only where state/effects are needed: `Header`, `StatsRow`, `SpeedRace`, `DesignFlip`, `ProjectSlots`, `BudgetCalculator`, `SeoTrace`, `EfficiencyLoop`.
+- Navigation structure lives in `lib/navigation.ts`; service copy in `lib/services.ts`.
 - All site config (name, URL, contact, socials) comes from `lib/site.ts` — never hardcode.
 - Industry page data comes from `lib/industries.ts`; case studies from `lib/work.ts`.
 - Every image goes through `next/image` with explicit `width`/`height` or `fill`, and meaningful `alt`.
@@ -103,6 +101,4 @@ Mascot images must keep crisp pixels when scaled: use the `pixelated` utility
 
 ## 4. Motion
 
-Subtle and cheap only: CSS transitions on hover/focus (`transition-colors`,
-`transition-transform`, small `-translate-y` lifts). No scroll-jacking, no heavy
-animation libraries — performance is the brand.
+Reveal-once on scroll via IntersectionObserver, ≤ 700 ms, staggered; CSS transitions on hover/focus; every animation has a `motion-reduce:` fallback. The logo is never animated beyond `BrowMark`'s fade-in. No scroll-jacking, no animation libraries.

@@ -1,40 +1,34 @@
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { Mascot } from "@/components/site/Mascot";
-import { SpeechBubble } from "@/components/site/SpeechBubble";
+import { Eyebrow } from "@/components/ui/SectionHeading";
+import { BrowMark } from "@/components/site/illustrations/BrowMark";
+import { homeCopy } from "@/lib/services";
 
 export function Hero() {
   return (
-    <section className="overflow-hidden py-16 sm:py-24">
+    <section className="overflow-hidden py-20 sm:py-28">
       <Container>
-        <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto]">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-purple">
-              Web studio · Malaysia
-            </p>
-            <h1 className="font-display text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-              We build websites.{" "}
-              <span className="text-purple-deep">
-                Then we complain about them until they&apos;re great.
-              </span>
+            <Eyebrow className="mb-5">{homeCopy.eyebrow}</Eyebrow>
+            <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
+              {homeCopy.h1}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-navy-soft">
-              Grumpy Pixels is a web design and development studio in Malaysia.
-              We create fast, beautiful, SEO-friendly websites for growing
-              businesses — and we sweat the details so you don&apos;t have to.
+            <p className="mt-6 max-w-2xl text-lg text-ink-soft">
+              {homeCopy.lede}
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="/#contact">Let&apos;s work together</Button>
-              <Button href="/work" variant="secondary">
-                View our work
+              <Button href={homeCopy.primaryCta.href}>
+                {homeCopy.primaryCta.label}
+              </Button>
+              <Button href={homeCopy.secondaryCta.href} variant="secondary">
+                {homeCopy.secondaryCta.label}
               </Button>
             </div>
+            <p className="mt-6 text-sm text-ink-soft">{homeCopy.aside}</p>
           </div>
-          <div className="mx-auto flex flex-col items-center gap-3 lg:mx-0 lg:items-end">
-            <SpeechBubble className="lg:-mr-2">
-              That spacing isn&apos;t 24px...
-            </SpeechBubble>
-            <Mascot size={200} priority className="drop-shadow-sm" />
+          <div className="flex items-center justify-center py-4 lg:py-12">
+            <BrowMark className="w-48 sm:w-64 lg:w-80" />
           </div>
         </div>
       </Container>

@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import {
+  Eyebrow,
+  eyebrowClass,
+  SectionHeading,
+} from "@/components/ui/SectionHeading";
 import { BudgetCalculator } from "@/components/site/BudgetCalculator";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { JsonLd } from "@/components/site/JsonLd";
-import { Mascot } from "@/components/site/Mascot";
-import { SpeechBubble } from "@/components/site/SpeechBubble";
+import { ServiceFaq } from "@/components/site/ServiceFaq";
 import { costFactors, marketRanges, pricingFaq, tiers } from "@/lib/pricing";
 import { site } from "@/lib/site";
 
@@ -57,40 +60,22 @@ export default function PricingPage() {
       {/* Hero */}
       <section className="py-16 sm:py-24">
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-[1.5fr_1fr]">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-purple">
-                Pricing, minus the mystery
-              </p>
-              <h1 className="font-display text-4xl font-semibold leading-tight sm:text-5xl">
-                How much does a website cost in Malaysia?
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg text-navy-soft">
-                Most agencies hide their pricing. We won&apos;t pretend every
-                project costs the same — but we can give you realistic budget
-                ranges based on the websites and systems we actually build.
-                Fast websites. Clear expectations. No surprises.
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  href="/#contact"
-                  className="inline-flex min-h-11 items-center justify-center rounded-full bg-purple px-6 py-3 font-semibold text-white transition-colors hover:bg-purple-deep"
-                >
-                  Get a quote
-                </Link>
-                <a
-                  href="#estimate"
-                  className="inline-flex min-h-11 items-center justify-center rounded-full border border-navy/15 bg-white px-6 py-3 font-semibold text-navy transition-colors hover:border-purple hover:text-purple-deep"
-                >
-                  Estimate my budget
-                </a>
-              </div>
-            </div>
-            <div className="mx-auto flex flex-col items-center gap-3 lg:mx-0 lg:items-end">
-              <SpeechBubble>
-                The answer nobody likes: it depends.
-              </SpeechBubble>
-              <Mascot size={220} priority />
+          <div className="max-w-3xl">
+            <Eyebrow className="mb-3">Pricing, minus the mystery</Eyebrow>
+            <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
+              How much does a website cost in Malaysia?
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-ink-soft">
+              Most agencies hide their pricing. We won&apos;t pretend every
+              project costs the same — but we can give you realistic budget
+              ranges based on the websites and systems we actually build.
+              Fast websites. Clear expectations. No surprises.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button href="/#contact">Get a quote</Button>
+              <Button href="#estimate" variant="secondary">
+                Estimate my budget
+              </Button>
             </div>
           </div>
         </Container>
@@ -113,22 +98,22 @@ export default function PricingPage() {
           <div className="grid gap-6 lg:grid-cols-3">
             {tiers.map((tier) => (
               <Card key={tier.slug} tint={tier.tint} className="flex flex-col">
-                <h2 className="font-display text-2xl font-semibold">
+                <h2 className="font-display text-2xl font-bold tracking-[-0.02em] text-ink">
                   {tier.name}
                 </h2>
-                <p className="mt-1 font-display text-xl font-semibold text-purple-deep">
+                <p className="mt-1 font-display text-xl font-bold tracking-[-0.02em] text-violet">
                   {tier.priceRange}
                 </p>
-                <p className="mt-3 text-sm text-navy-soft">{tier.summary}</p>
+                <p className="mt-3 text-sm text-ink-soft">{tier.summary}</p>
 
-                <h3 className="mt-5 text-xs font-semibold uppercase tracking-widest text-purple">
+                <h3 className={`mt-5 ${eyebrowClass} text-violet`}>
                   Perfect for
                 </h3>
-                <ul className="mt-2 space-y-1.5 text-sm text-navy">
+                <ul className="mt-2 space-y-1.5 text-sm text-ink">
                   {tier.perfectFor.map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <span
-                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple"
+                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet"
                         aria-hidden
                       />
                       {item}
@@ -136,14 +121,14 @@ export default function PricingPage() {
                   ))}
                 </ul>
 
-                <h3 className="mt-5 text-xs font-semibold uppercase tracking-widest text-purple">
+                <h3 className={`mt-5 ${eyebrowClass} text-violet`}>
                   Includes
                 </h3>
-                <ul className="mt-2 space-y-1.5 text-sm text-navy">
+                <ul className="mt-2 space-y-1.5 text-sm text-ink">
                   {tier.includes.map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <span
-                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-purple"
+                        className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-violet"
                         aria-hidden
                       />
                       {item}
@@ -159,7 +144,7 @@ export default function PricingPage() {
               </Card>
             ))}
           </div>
-          <p className="mt-6 text-sm text-navy-soft">
+          <p className="mt-6 text-sm text-ink-soft">
             These aren&apos;t packages — they&apos;re honest snapshots of how
             projects usually shape up. Your quote is always based on your
             actual scope.
@@ -191,10 +176,10 @@ export default function PricingPage() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {costFactors.map((factor) => (
               <Card key={factor.title} className="p-6 sm:p-6">
-                <h3 className="font-display text-lg font-semibold">
+                <h3 className="font-display text-xl font-bold">
                   {factor.title}
                 </h3>
-                <p className="mt-2 text-sm text-navy-soft">
+                <p className="mt-2 text-sm text-ink-soft">
                   {factor.description}
                 </p>
               </Card>
@@ -206,40 +191,31 @@ export default function PricingPage() {
       {/* Why good value */}
       <section className="py-12 sm:py-16">
         <Container>
-          <div className="grid items-start gap-10 lg:grid-cols-[1.5fr_1fr]">
-            <div>
-              <SectionHeading
-                eyebrow="Value, not just price"
-                title="Why a Grumpy Pixels website is worth it"
-                lede="A cheap website that nobody finds is the most expensive thing you can buy."
-              />
-              <div className="mt-6 space-y-4 text-navy-soft">
-                <p>
-                  Every website we build ships fast-loading, mobile-first, and
-                  with technical SEO baked in — not bolted on later as an
-                  upsell. That means it starts working for you on day one:
-                  ranking on Google, loading before visitors lose patience, and
-                  turning traffic into enquiries.
-                </p>
-                <p>
-                  We build with modern tools (usually Next.js) chosen for
-                  speed, SEO and long-term maintainability — so you&apos;re not
-                  paying us again every month to babysit plugins. We choose the
-                  right tools for the right problem, and we tell you honestly
-                  when something isn&apos;t worth your money.
-                </p>
-                <p>
-                  And because websites are the only thing we do, you&apos;re
-                  paying for specialists — not a marketing agency&apos;s side
-                  quest.
-                </p>
-              </div>
-            </div>
-            <div className="mx-auto flex flex-col items-center gap-3 lg:mx-0 lg:items-end lg:pt-10">
-              <SpeechBubble>
-                Cheap twice is expensive once.
-              </SpeechBubble>
-              <Mascot size={180} />
+          <div className="max-w-3xl">
+            <SectionHeading
+              eyebrow="Value, not just price"
+              title="Why a Grumpy Pixels website is worth it"
+              lede="A cheap website that nobody finds is the most expensive thing you can buy."
+            />
+            <div className="mt-6 max-w-2xl space-y-4 text-ink-soft">
+              <p>
+                Every website we build ships fast-loading, mobile-first, and
+                with technical SEO baked in — not bolted on later as an
+                upsell. That means it starts working for you on day one:
+                ranking on Google, loading before visitors lose patience, and
+                turning traffic into enquiries.
+              </p>
+              <p>
+                We build with modern tools (usually Next.js) chosen for
+                speed, SEO and long-term maintainability — so you&apos;re not
+                paying us again every month to babysit plugins. We choose the
+                right tools for the right problem, and we tell you honestly
+                when something isn&apos;t worth your money.
+              </p>
+              <p>
+                And because we build the thing we quote, you&apos;re paying
+                for specialists — not a reseller&apos;s margin.
+              </p>
             </div>
           </div>
         </Container>
@@ -257,21 +233,21 @@ export default function PricingPage() {
             {marketRanges.map((band) => (
               <div
                 key={band.range}
-                className="rounded-2xl border border-navy/8 bg-white p-5 shadow-soft sm:p-6"
+                className="rounded-2xl border border-ink/8 bg-white p-5 shadow-soft sm:p-6"
               >
                 <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                  <h3 className="font-display text-lg font-semibold text-purple-deep">
+                  <h3 className="font-display text-xl font-bold tracking-[-0.02em] text-violet">
                     {band.range}
                   </h3>
-                  <p className="font-semibold text-navy">{band.label}</p>
+                  <p className="font-semibold text-ink">{band.label}</p>
                 </div>
-                <p className="mt-2 text-sm text-navy-soft">
+                <p className="mt-2 text-sm text-ink-soft">
                   {band.description}
                 </p>
               </div>
             ))}
           </div>
-          <p className="mt-6 max-w-3xl text-navy-soft">
+          <p className="mt-6 max-w-3xl text-ink-soft">
             In short: a serious custom website in Malaysia starts around
             RM5,000, a growth-focused website with SEO architecture runs
             RM10,000–RM25,000, and custom platforms are scoped from RM25,000
@@ -281,38 +257,15 @@ export default function PricingPage() {
         </Container>
       </section>
 
-      {/* FAQ */}
-      <section className="py-12 sm:py-16">
-        <Container>
-          <SectionHeading eyebrow="FAQ" title="Pricing questions, answered" />
-          <div className="mt-8 max-w-3xl space-y-4">
-            {pricingFaq.map((item) => (
-              <details
-                key={item.question}
-                className="group rounded-2xl border border-navy/8 bg-white p-5 shadow-soft"
-              >
-                <summary className="cursor-pointer list-none font-semibold text-navy marker:hidden">
-                  <span className="flex items-center justify-between gap-4">
-                    {item.question}
-                    <span
-                      className="text-purple-deep transition-transform group-open:rotate-45"
-                      aria-hidden
-                    >
-                      +
-                    </span>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm text-navy-soft">{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ServiceFaq
+        items={pricingFaq}
+        eyebrow="FAQ"
+        title="Pricing questions, answered"
+      />
 
       <CtaBanner
         title="Not sure where your project fits?"
         copy="Let's have a quick conversation and point you in the right direction. No pressure. No sales tactics. Just honest advice."
-        quip="We'll probably trim a few plugins too."
         whatsappMessage="Hi Grumpy Pixels! I'd like a quote for a website project."
       />
     </>

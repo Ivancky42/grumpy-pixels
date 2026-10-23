@@ -1,12 +1,11 @@
 import type { ReactNode } from "react";
 
-type Tint = "white" | "lavender" | "blush" | "mint";
+type Tint = "white" | "lavender" | "blush";
 
 const tints: Record<Tint, string> = {
   white: "bg-white",
   lavender: "bg-lavender-soft",
   blush: "bg-blush/40",
-  mint: "bg-mint/40",
 };
 
 export function Card({
@@ -20,7 +19,7 @@ export function Card({
 }) {
   return (
     <div
-      className={`rounded-3xl border border-navy/8 p-6 shadow-soft sm:p-8 ${tints[tint]} ${className}`}
+      className={`rounded-3xl border border-ink/8 p-6 shadow-soft sm:p-8 ${tints[tint]} ${className}`}
     >
       {children}
     </div>

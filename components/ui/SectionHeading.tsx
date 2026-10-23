@@ -1,3 +1,26 @@
+import type { ReactNode } from "react";
+
+/** Shared eyebrow type style; add the colour (`text-violet` or `text-cream/70`) at the call site. */
+export const eyebrowClass = "text-xs font-semibold uppercase tracking-[0.18em]";
+
+export function Eyebrow({
+  children,
+  dark = false,
+  className = "",
+}: {
+  children: ReactNode;
+  dark?: boolean;
+  className?: string;
+}) {
+  return (
+    <p
+      className={`${eyebrowClass} ${dark ? "text-cream/70" : "text-violet"} ${className}`}
+    >
+      {children}
+    </p>
+  );
+}
+
 type Props = {
   eyebrow?: string;
   title: string;
@@ -17,19 +40,19 @@ export function SectionHeading({
   return (
     <div className={`max-w-2xl ${alignCls}`}>
       {eyebrow && (
-        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-purple">
+        <Eyebrow dark={dark} className="mb-3">
           {eyebrow}
-        </p>
+        </Eyebrow>
       )}
       <h2
-        className={`font-display text-3xl font-semibold sm:text-4xl ${
-          dark ? "text-cream" : "text-navy"
+        className={`font-display text-3xl font-bold leading-tight tracking-[-0.02em] sm:text-4xl ${
+          dark ? "text-cream" : "text-ink"
         }`}
       >
         {title}
       </h2>
       {lede && (
-        <p className={`mt-4 text-lg ${dark ? "text-lavender" : "text-navy-soft"}`}>
+        <p className={`mt-4 text-lg ${dark ? "text-cream/80" : "text-ink-soft"}`}>
           {lede}
         </p>
       )}

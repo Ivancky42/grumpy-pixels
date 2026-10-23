@@ -11,83 +11,89 @@ all configured in `lib/site.ts`.
 ## Global
 
 - Site name: Grumpy Pixels
-- Meta default title: `Grumpy Pixels — Web Design & Development Studio in Malaysia`
-- Meta default description: `Grumpy Pixels is a Malaysian web studio building fast, beautiful, SEO-friendly websites with Next.js. Web design, development, revamps and performance optimization.`
+- Meta default title: `Grumpy Pixels — Software, SEO & Consultancy in Malaysia`
+- Meta default description: `Malaysian technology studio: fast software and websites, SEO on our own campaign platform, and AI and technology consultancy that gets more done with less.`
 - Contact: WhatsApp deep link + `hello@grumpypixels.my` (placeholder)
+- Logo descriptor: `Fast websites. Happy users.` (footer only)
 - Footer line: `Made in Malaysia. Grumpy about slow websites since day one.`
 
 ## Home
 
 ### Hero
 
-- Eyebrow: `Web studio · Malaysia`
-- H1: `We build websites. Then we complain about them until they're great.`
-- Supporting: `Grumpy Pixels is a web design and development studio in Malaysia. We create fast, beautiful, SEO-friendly websites for growing businesses — and we sweat the details so you don't have to.`
-- Primary CTA: `Let's work together` (→ #contact)
-- Secondary CTA: `View our work` (→ /work)
-- Mascot quip: `That spacing isn't 24px...`
+- Eyebrow: `Technology studio · Malaysia`
+- H1: `We build it, rank it, and fix what slows you down.`
+- Supporting: `Grumpy Pixels is a technology studio in Malaysia. We build fast software, run SEO on our own campaign platform, and advise leaders on using AI and modern tooling to get more done with less.`
+- Aside: `Still grumpy about slow websites. Now also about wasted hours.`
+- Primary CTA: `Talk to us` (→ #contact)
+- Secondary CTA: `See our services` (→ /services)
 
-### Services ("What we do")
+### Three pillars
 
-Eyebrow: `Services` · H2: `What we do` · Lede: `Websites only. That's the point — we go deep instead of wide.`
-
-1. **Web Design** — `Clean, modern designs that feel like your brand and guide visitors to act.` Bullets: UI/UX design · Mobile-first layouts · Design systems
-2. **Web Development** — `Hand-built with Next.js and React. No bloated themes, no plugin roulette.` Bullets: Next.js & React · Custom builds · Shopify storefronts
-3. **Website Revamp** — `Outdated site? We rebuild it to be faster, prettier and easier to find on Google.` Bullets: Redesigns · Migrations · Content restructuring
-4. **Performance & SEO** — `We make existing websites load fast and rank better — measurably.` Bullets: Core Web Vitals · Technical SEO · Speed audits
+Eyebrow: `What we do` · H2: `Three ways we make companies faster` · Lede: `Build the software, get found for it, and run the whole operation with less manual effort. Take one or all three.` Cards come from `lib/services.ts` (`label`, `navDescription`, first three `offerings`).
 
 ### Why fast matters
 
-Eyebrow: `Why speed` · H2: `Slow websites lose customers` · Lede: `Speed isn't a nice-to-have. It decides whether people stay, buy, and find you at all.`
+Eyebrow: `Why speed` · H2: `Slow software loses customers` · Lede: `Speed isn't a nice-to-have. It decides whether people stay, buy, and find you at all.`
 
 - `53%` — of mobile visitors leave a site that takes over 3 seconds to load
 - `2x` — slow pages can double bounce rates and halve conversions
 - `#1` — Google uses page experience and Core Web Vitals in ranking
 - `<1s` — what we aim for. Every page, every device.
 
-Mascot quip: `Could be faster.`
-
-### Why design matters
-
-Eyebrow: `Why design` · H2: `Good design earns trust` · Lede: `People decide whether to trust your business in a blink — and they decide it by how your website looks and feels. Good design isn't decoration; it's why visitors stay, believe you, and come back.`
-
-- `0.05s` — is all it takes for visitors to form a first impression of your website
-- `75%` — of people judge a business's credibility by its website design
-- `94%` — of first impressions are design-related — before anyone reads a word
-- `88%` — of users won't return after a bad experience on a website
-
-Closing line: `That's why we design every page to feel considered: clear hierarchy, honest copy, consistent spacing, and details that quietly say these people care. Trust converts — and design is where trust starts.`
+(The design stats and `DesignFlip` now live on /services/software-development.)
 
 ### Featured work
 
 Eyebrow: `Our work` · H2: `Recent projects` · Link: `See all work →`
 (Case study copy below in "Work".)
 
-### Industries
+(The industries grid now lives on /services/software-development#industries; the footer links all six industry pages.)
 
-Eyebrow: `Who we help` · H2: `Built for your industry` · Lede: `Every business is different. We've designed websites around the way Malaysian businesses actually win customers.`
-Cards link to the six `/web-design/*` pages.
+### How we work
 
-### Process
+Eyebrow: `How we work` · H2: `We overthink so you don't have to`
 
-Eyebrow: `Process` · H2: `We overthink so you don't have to`
+1. **Diagnose** — `We start with your numbers: where time, money and customers are being lost, and what fixing it is worth.`
+2. **Decide** — `You get a written plan in plain language — what we'll build or change, in what order, and why.`
+3. **Deliver** — `Software, SEO or advice: we ship in small, visible steps so you see progress every week.`
+4. **Measure** — `Every change is tracked back to the result it produced. If it didn't move the number, we say so.`
 
-1. **Discover** — `We learn your business, your customers, and what your website needs to achieve.`
-2. **Design** — `We design every screen — mobile first — until it looks right and reads right.`
-3. **Build** — `We build it fast and fussy: clean code, quick loads, SEO baked in.`
-4. **Launch** — `We launch, measure, and keep complaining about the details until they're perfect.`
+### Small by design
+
+Eyebrow: `Boutique on purpose` · Title: `Small by design` · Lede: `We intentionally work with a limited number of clients at any time. Good software and honest advice need focus, attention to detail and direct access — not a production line.`
+
+Supporting: `By keeping our pipeline small, we stay hands-on through every stage — from strategy and design to development and launch.`
+
+- Direct access to the people doing the work
+- Faster feedback and communication
+- Greater attention to detail
+- Higher quality outcomes
+- No outsourcing — everything in-house
+
+Closing quote: `We'd rather do a few things exceptionally than dozens of things adequately.`
 
 ### Final CTA (#contact)
 
 - H2: `Have a project in mind?`
 - Copy: `Tell us what you're building. We'll reply within one working day — usually with opinions.`
 - Buttons: `WhatsApp us` + `hello@grumpypixels.my`
-- Mascot: approving variant, quip: `Finally.`
+
+## Services (/services, /services/[service])
+
+Hub and three service pages are rendered from `lib/services.ts`. Edit copy there, not in components. Each record: label, navDescription, eyebrow, h1, metaTitle (≤ 60 chars), metaDescription (≤ 160 chars), intro, proof ×3, offerings, howItWorks, faq, cta, external (SEO: Client sign in → seo.grumpypixels.my).
+
+| Page | H1 | Meta title |
+| --- | --- | --- |
+| `/services/software-development` | Software that pulls its weight. | Software & Web Development Malaysia \| Grumpy Pixels |
+| `/services/seo` | SEO you can audit, not just believe. | SEO Services & Campaign Platform Malaysia \| Grumpy Pixels |
+| `/services/consultancy` | Get more done with the tools you already pay for. | AI & Technology Consultancy Malaysia \| Grumpy Pixels |
 
 ## Work (/work)
 
 - H1: `Work we're (almost) happy with`
 - Lede: `A selection of recent projects. We focus on outcomes: faster sites, better rankings, more enquiries.`
+- Meta description now says "a Malaysian technology studio".
 
 ### MAPACS ASC 2026 — event.mapacs.co/events/asm-2026
 
@@ -119,6 +125,7 @@ Template per industry (full data in `lib/industries.ts`):
 - "What we build" — 4–6 deliverables as cards/bullets.
 - FAQ — 3 questions (also emitted as FAQPage JSON-LD).
 - CTA banner.
+- CTA email subject: `Website for my {industry} business`.
 
 Industries and angles:
 
@@ -137,23 +144,21 @@ Written as an educational budget guide, not a package menu ("educate first,
 sell second"). Full copy and tier data live in `lib/pricing.ts`.
 
 - H1: `How much does a website cost in Malaysia?` (cost-intent SEO + AI-quotable)
-- Hero quip: `The answer nobody likes: it depends.`
 - Tiers (snapshots, not packages): `Launch` RM5k–10k (2–4 wks) ·
   `Grow` RM10k–25k (4–8 wks) · `Scale` RM25k+ (scope-dependent)
 - Interactive budget calculator (`components/site/BudgetCalculator.tsx`) —
   pages + add-ons → estimated range + closest tier. Guidance only.
 - "What actually affects website cost?" — design, content, SEO, integrations,
   custom functionality.
-- Value section quip: `Cheap twice is expensive once.`
+- Specialists line: `And because we build the thing we quote, you're paying for specialists — not a reseller's margin.`
 - Market guide: RM1k–3k templates (we don't operate here) → RM5k–10k custom →
   RM10k–25k growth → RM25k+ platforms.
 - FAQ (7 questions, emitted as FAQPage JSON-LD) — leads with the direct
   "How much does a website cost in Malaysia?" answer with real figures.
-- Final CTA: `Not sure where your project fits?` / quip: `We'll probably trim
-  a few plugins too.`
+- Final CTA: `Not sure where your project fits?`
 
 ## Tone reminders
 
 - Headlines: confident, plain, a little wry. Never "synergy", never "solutions".
 - Body: short sentences, specifics over superlatives.
-- Mascot quips: max one per screen, lowercase grumble energy.
+- No mascot, no quips. Dry asides live in body copy, one per page at most.

@@ -1,20 +1,18 @@
 # Grumpy Pixels
 
-> Grumpy Pixels is a web design and development studio in Malaysia. We build fast, beautiful, SEO-friendly websites for growing businesses using modern frameworks such as Next.js. Tagline: "We build websites. Then we complain about them until they're great."
+> Grumpy Pixels is a technology studio in Malaysia. We build fast software and websites, run SEO on our own campaign platform (Grumpy Pixels SEO), and advise business leaders on using AI and modern tooling to get more done with less. Logo descriptor: "Fast websites. Happy users."
 
 ## Services
 
-- Web design: custom UI/UX, mobile-first layouts, design systems
-- Web development: Next.js and React builds, custom websites, Shopify storefronts
-- Website revamp: redesigns, migrations, content restructuring for outdated websites
-- Performance and SEO: Core Web Vitals optimization, technical SEO, speed audits
+- Software development (/services/software-development): custom websites and marketing sites, web applications and portals, e-commerce (Shopify and custom), website revamps and migrations, performance and Core Web Vitals, ongoing care. Built with Next.js, React and TypeScript; Shopify or Payload CMS where they fit.
+- SEO platform and services (/services/seo): managed SEO campaigns run on Grumpy Pixels SEO (seo.grumpypixels.my), an invite-only campaign platform for agencies, partners and clients where every change is traced from the finding that prompted it to the result it produced. Technical SEO, content and on-page programmes, local SEO for Malaysia, monthly reporting, AI-search readiness (structured data, llms.txt).
+- Consultancy (/services/consultancy): AI readiness and workflow audits, AI implementation (assistants, automation, internal tools), SEO strategy and team enablement, ads and marketing technology (tracking, attribution, server-side tagging, CRM), technology due diligence, fractional technical lead. Focused on measurable efficiency for owners and leadership teams.
 
 ## Pricing (Malaysian Ringgit)
 
-- Launch (RM5,000–RM10,000): custom small business website, 2–4 weeks. Custom design, mobile-first, technical SEO foundations, performance optimization.
-- Grow (RM10,000–RM25,000): growth-focused website, 4–8 weeks. SEO architecture, blog and CMS, conversion optimization, analytics.
-- Scale (RM25,000+): custom platforms — portals, e-commerce, dashboards, integrations. Scoped per project.
-- Full guide: /pricing
+- Websites — Launch (RM5,000–RM10,000): custom small business website, 2–4 weeks. Grow (RM10,000–RM25,000): growth-focused website with SEO architecture, CMS and analytics, 4–8 weeks. Scale (RM25,000+): custom platforms, portals, e-commerce, dashboards, integrations; scoped per project.
+- SEO campaigns and consultancy are scoped per engagement (fixed-fee diagnosis and roadmap, day rates or monthly retainer).
+- Full website pricing guide: /pricing
 
 ## Industries served (Malaysia)
 
@@ -27,16 +25,21 @@
 
 ## Selected work
 
-- MAPACS ASC 2026 (event.mapacs.co): congress website for the Malaysian Association of Plastic, Aesthetic and Craniomaxillofacial Surgeons, built on Shopify with e-commerce for registration tickets and merchandise.
+- MAPACS ASC 2026 (event.mapacs.co): congress website for the Malaysian Association of Plastic, Aesthetic and Craniomaxillofacial Surgeons, built with Next.js and Shopify e-commerce for registration tickets and merchandise.
 - PersonEdge (personedge.vercel.app): marketing site for a Kuala Lumpur creative agency, built with Next.js, Payload CMS and Neon Postgres.
 
 ## Pages
 
 - Home: /
+- Services overview: /services
+- Software development: /services/software-development
+- SEO platform and services: /services/seo
+- Consultancy: /services/consultancy
 - Work and case studies: /work
-- Pricing guide ("How much does a website cost in Malaysia?"): /pricing
+- Website pricing guide ("How much does a website cost in Malaysia?"): /pricing
 
 ## Contact
 
 - Email: hello@grumpypixels.my
+- SEO platform sign-in (existing clients): https://seo.grumpypixels.my
 - Area served: Malaysia (remote-friendly)
