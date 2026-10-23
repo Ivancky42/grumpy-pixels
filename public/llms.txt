@@ -26,7 +26,7 @@
 ## Selected work
 
 - MAPACS ASC 2026 (event.mapacs.co): congress website for the Malaysian Association of Plastic, Aesthetic and Craniomaxillofacial Surgeons, built with Next.js and Shopify e-commerce for registration tickets and merchandise.
-- PersonEdge (personedge.vercel.app): marketing site for a Kuala Lumpur creative agency, built with Next.js, Payload CMS and Neon Postgres.
+- PersonEdge (personedge.com): marketing site for a Kuala Lumpur creative agency, built with Next.js, Payload CMS and Neon Postgres.
 
 ## Pages
 
