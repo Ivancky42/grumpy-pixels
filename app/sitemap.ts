@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { industries } from "@/lib/industries";
+import { services } from "@/lib/services";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -23,6 +24,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.9,
     },
+    {
+      url: `${site.url}/services`,
+      lastModified,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    ...services.map((service) => ({
+      url: `${site.url}/services/${service.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
     ...industries.map((industry) => ({
       url: `${site.url}/web-design/${industry.slug}`,
       lastModified,

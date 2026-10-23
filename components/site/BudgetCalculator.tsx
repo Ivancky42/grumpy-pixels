@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { Eyebrow, eyebrowClass } from "@/components/ui/SectionHeading";
 
 type PageBand = "1-5" | "6-10" | "11-20" | "20+";
 
@@ -53,10 +54,10 @@ export function BudgetCalculator() {
     mid >= 25000 ? "Scale" : mid > 10000 ? "Grow" : "Launch";
 
   return (
-    <div className="grid gap-6 rounded-3xl border border-navy/8 bg-white p-6 shadow-soft sm:p-8 lg:grid-cols-[1.4fr_1fr]">
+    <div className="grid gap-6 rounded-3xl border border-ink/8 bg-white p-6 shadow-soft sm:p-8 lg:grid-cols-[1.4fr_1fr]">
       <div>
         <fieldset>
-          <legend className="text-sm font-semibold uppercase tracking-widest text-purple">
+          <legend className={`${eyebrowClass} text-violet`}>
             How many pages?
           </legend>
           <div className="mt-3 flex flex-wrap gap-2">
@@ -66,10 +67,10 @@ export function BudgetCalculator() {
                 type="button"
                 onClick={() => setPages(band.value)}
                 aria-pressed={pages === band.value}
-                className={`rounded-full px-4 py-2.5 text-sm font-semibold transition-colors min-h-11 ${
+                className={`rounded-full px-4 py-2.5 text-sm font-semibold transition-colors min-h-11 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet motion-reduce:transition-none ${
                   pages === band.value
-                    ? "bg-purple text-white"
-                    : "bg-lavender-soft text-navy hover:bg-lavender"
+                    ? "bg-violet text-white"
+                    : "bg-lavender-soft text-ink hover:text-violet"
                 }`}
               >
                 {band.label}
@@ -79,22 +80,22 @@ export function BudgetCalculator() {
         </fieldset>
 
         <fieldset className="mt-6">
-          <legend className="text-sm font-semibold uppercase tracking-widest text-purple">
+          <legend className={`${eyebrowClass} text-violet`}>
             What does it need?
           </legend>
           <div className="mt-3 space-y-2">
             {addons.map((addon) => (
               <label
                 key={addon.key}
-                className="flex min-h-11 cursor-pointer items-center gap-3 rounded-2xl border border-navy/8 px-4 py-2.5 transition-colors has-checked:border-purple has-checked:bg-lavender-soft"
+                className="flex min-h-11 cursor-pointer items-center gap-3 rounded-2xl border border-ink/8 px-4 py-2.5 transition-colors motion-reduce:transition-none has-checked:border-violet has-checked:bg-lavender-soft"
               >
                 <input
                   type="checkbox"
                   checked={selected.has(addon.key)}
                   onChange={() => toggle(addon.key)}
-                  className="h-4 w-4 accent-purple"
+                  className="h-4 w-4 accent-violet"
                 />
-                <span className="text-sm font-medium text-navy">
+                <span className="text-sm font-medium text-ink">
                   {addon.label}
                 </span>
               </label>
@@ -103,22 +104,20 @@ export function BudgetCalculator() {
         </fieldset>
       </div>
 
-      <div className="flex flex-col justify-center rounded-2xl bg-navy p-6 text-center sm:p-8">
-        <p className="text-sm font-semibold uppercase tracking-widest text-lavender">
-          Estimated budget
-        </p>
-        <p className="mt-3 font-display text-3xl font-semibold text-cream sm:text-4xl">
+      <div className="flex flex-col justify-center rounded-2xl bg-ink p-6 text-center sm:p-8">
+        <Eyebrow dark>Estimated budget</Eyebrow>
+        <p className="mt-3 font-display text-3xl font-bold tracking-[-0.02em] text-cream sm:text-4xl">
           {fmt(low)} – {fmt(high)}
         </p>
-        <p className="mt-2 text-sm text-lavender">
+        <p className="mt-2 text-sm text-cream/80">
           Closest fit: <span className="font-semibold text-cream">{tier}</span>
         </p>
-        <p className="mt-4 text-xs text-lavender/80">
+        <p className="mt-4 text-xs text-cream/70">
           Guidance only — final pricing depends on your exact requirements.
         </p>
         <Link
           href="/#contact"
-          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-purple px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-purple-deep"
+          className="mt-6 inline-flex min-h-11 items-center justify-center rounded-full bg-violet px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-violet-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cream motion-reduce:transition-none"
         >
           Get an exact quote
         </Link>

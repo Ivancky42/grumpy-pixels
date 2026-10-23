@@ -5,9 +5,11 @@
 export const site = {
   name: "Grumpy Pixels",
   url: "https://grumpypixels.my",
-  title: "Grumpy Pixels — Web Design & Development Studio in Malaysia",
+  title: "Grumpy Pixels — Software, SEO & Consultancy in Malaysia",
   description:
-    "Grumpy Pixels is a Malaysian web studio building fast, beautiful, SEO-friendly websites with Next.js. Web design, development, revamps and performance optimization.",
+    "Malaysian technology studio: fast software and websites, SEO on our own campaign platform, and AI and technology consultancy that gets more done with less.",
+  /** Logo descriptor — used in the footer, never as a headline. */
+  tagline: "Fast websites. Happy users.",
   locale: "en_MY",
   region: "Malaysia",
   email: "hello@grumpypixels.my",
@@ -16,11 +18,17 @@ export const site = {
   // International format without "+" for the wa.me deep link
   whatsappNumber: "60123456789",
   whatsappDisplay: "+60 12-345 6789",
+  /** The SEO campaign platform (invite-only sign-in). */
+  seoPlatform: {
+    name: "Grumpy Pixels SEO",
+    url: "https://seo.grumpypixels.my",
+    signInLabel: "Client sign in",
+  },
   assets: {
-    favicon: "/favicon.ico",
-    icon: "/icon.png",
-    appleIcon: "/apple-icon.png",
-    brandIcon: "/brand/icon.png",
+    /** Horizontal lockup, 1200 px PNG — schema.org logo and third-party use */
+    logo: "/brand/gp-horizontal-color.png",
+    /** Symbol on violet tile, 512 px — avatars and secondary OG image */
+    symbol: "/brand/gp-symbol-app-icon-512.png",
     openGraph: "/opengraph-image.png",
   },
 } as const;
@@ -31,3 +39,6 @@ export const whatsappLink = (message?: string) =>
   }`;
 
 export const mailtoLink = `mailto:${site.email}`;
+
+export const mailtoWithSubject = (subject: string) =>
+  `mailto:${site.email}?subject=${encodeURIComponent(subject)}`;

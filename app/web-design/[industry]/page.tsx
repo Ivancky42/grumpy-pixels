@@ -3,11 +3,11 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Container } from "@/components/ui/Container";
 import { Card } from "@/components/ui/Card";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
+import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { CtaBanner } from "@/components/site/CtaBanner";
 import { JsonLd } from "@/components/site/JsonLd";
-import { Mascot } from "@/components/site/Mascot";
-import { SpeechBubble } from "@/components/site/SpeechBubble";
+import { ServiceFaq } from "@/components/site/ServiceFaq";
 import { getIndustry, industries } from "@/lib/industries";
 import { site } from "@/lib/site";
 
@@ -60,24 +60,28 @@ export default async function IndustryPage({ params }: Props) {
         }}
       />
 
-      <section className="py-16 sm:py-24">
+      <section className="pb-20 pt-8 sm:pb-28 sm:pt-10">
         <Container>
-          <div className="grid items-center gap-10 lg:grid-cols-[1.5fr_1fr]">
-            <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-purple">
-                Web design for {industry.label.toLowerCase()}
-              </p>
-              <h1 className="font-display text-4xl font-semibold leading-tight sm:text-5xl">
-                {industry.h1}
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg text-navy-soft">
-                {industry.intro}
-              </p>
-            </div>
-            <div className="mx-auto flex flex-col items-center gap-3 lg:mx-0 lg:items-end">
-              <SpeechBubble>{industry.quip}</SpeechBubble>
-              <Mascot size={200} priority />
-            </div>
+          <Breadcrumbs
+            items={[
+              { href: "/", label: "Home" },
+              {
+                href: "/services/software-development",
+                label: "Software development",
+              },
+              { label: industry.label },
+            ]}
+          />
+          <div className="mt-12 max-w-3xl sm:mt-16">
+            <Eyebrow className="mb-3">
+              Web design for {industry.label.toLowerCase()}
+            </Eyebrow>
+            <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
+              {industry.h1}
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg text-ink-soft">
+              {industry.intro}
+            </p>
           </div>
         </Container>
       </section>
@@ -89,15 +93,15 @@ export default async function IndustryPage({ params }: Props) {
             {industry.painPoints.map((point) => (
               <li
                 key={point}
-                className="flex items-start gap-3 rounded-2xl border border-navy/8 bg-white p-5 shadow-soft"
+                className="flex items-start gap-3 rounded-2xl border border-ink/8 bg-white p-5 shadow-soft"
               >
                 <span
-                  className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blush text-xs font-bold text-navy"
+                  className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-blush text-xs font-bold text-ink"
                   aria-hidden
                 >
                   !
                 </span>
-                <span className="text-sm text-navy">{point}</span>
+                <span className="text-sm text-ink">{point}</span>
               </li>
             ))}
           </ul>
@@ -114,10 +118,10 @@ export default async function IndustryPage({ params }: Props) {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 sm:gap-6">
             {industry.deliverables.map((item) => (
               <Card key={item.title} className="p-6 sm:p-6">
-                <h3 className="font-display text-lg font-semibold">
+                <h3 className="font-display text-xl font-bold">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm text-navy-soft">
+                <p className="mt-2 text-sm text-ink-soft">
                   {item.description}
                 </p>
               </Card>
@@ -126,47 +130,22 @@ export default async function IndustryPage({ params }: Props) {
         </Container>
       </section>
 
-      <section className="py-12 sm:py-16">
-        <Container>
-          <SectionHeading eyebrow="FAQ" title="Common questions" />
-          <div className="mt-8 max-w-3xl space-y-4">
-            {industry.faq.map((item) => (
-              <details
-                key={item.question}
-                className="group rounded-2xl border border-navy/8 bg-white p-5 shadow-soft"
-              >
-                <summary className="cursor-pointer list-none font-semibold text-navy marker:hidden">
-                  <span className="flex items-center justify-between gap-4">
-                    {item.question}
-                    <span
-                      className="text-purple-deep transition-transform group-open:rotate-45"
-                      aria-hidden
-                    >
-                      +
-                    </span>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm text-navy-soft">{item.answer}</p>
-              </details>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ServiceFaq items={industry.faq} eyebrow="FAQ" title="Common questions" />
 
       <section className="py-12 sm:py-16">
         <Container>
-          <p className="text-sm text-navy-soft">
+          <p className="text-sm text-ink-soft">
             Also looking for something else? See all{" "}
             <Link
-              href="/#industries"
-              className="font-semibold text-purple-deep underline-offset-4 hover:underline"
+              href="/services/software-development#industries"
+              className="font-semibold text-violet underline-offset-4 hover:underline"
             >
               industries we work with
             </Link>{" "}
             or browse{" "}
             <Link
               href="/work"
-              className="font-semibold text-purple-deep underline-offset-4 hover:underline"
+              className="font-semibold text-violet underline-offset-4 hover:underline"
             >
               our recent work
             </Link>
@@ -178,7 +157,7 @@ export default async function IndustryPage({ params }: Props) {
       <CtaBanner
         title={`Need a website for your ${industry.ctaNoun}?`}
         copy="Tell us about your business and we'll suggest the right approach — no jargon, no pressure."
-        quip="Let's fix it."
+        emailSubject={`Website for my ${industry.label.toLowerCase()} business`}
         whatsappMessage={`Hi Grumpy Pixels! I'm interested in a website for my ${industry.label.toLowerCase()} business.`}
       />
     </>

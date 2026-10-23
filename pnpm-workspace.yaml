@@ -1,0 +1,10 @@
+# Security overrides for transitive build-tool dependencies (pnpm audit).
+# Ranges stay inside the dependant's major. Remove an entry once the
+# dependant ships a patched range on its own.
+overrides:
+  baseline-browser-mapping@>=2.0.0 <2.11.0: ^2.11.0
+  brace-expansion@<2: ^1.1.21
+  brace-expansion@>=3: ^5.0.12
+  browserslist@<=4.28.6: ^4.28.7
+  js-yaml@>=4.0.0 <4.3.2: ^4.3.2
+  source-map-js@>=1.0.0 <1.2.2: ^1.2.2

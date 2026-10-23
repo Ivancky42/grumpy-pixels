@@ -4,14 +4,13 @@ import type { AnchorHTMLAttributes, ReactNode } from "react";
 type Variant = "primary" | "secondary" | "ghost";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold transition-colors min-h-11";
+  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-base font-semibold transition-colors motion-reduce:transition-none min-h-11 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-violet";
 
 const variants: Record<Variant, string> = {
-  primary:
-    "bg-purple text-white hover:bg-purple-deep focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple",
+  primary: "bg-violet text-white hover:bg-violet-deep",
   secondary:
-    "bg-white text-navy border border-navy/15 hover:border-purple hover:text-purple-deep",
-  ghost: "text-purple-deep hover:text-navy underline-offset-4 hover:underline px-2",
+    "bg-white text-ink border border-ink/15 hover:border-violet hover:text-violet",
+  ghost: "text-violet hover:text-ink underline-offset-4 hover:underline px-2",
 };
 
 type Props = {

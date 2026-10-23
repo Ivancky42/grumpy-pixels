@@ -1,13 +1,15 @@
-import type { Metadata } from "next";
-import { Fraunces, Plus_Jakarta_Sans } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Bricolage_Grotesque, Plus_Jakarta_Sans } from "next/font/google";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { JsonLd } from "@/components/site/JsonLd";
+import { LogoDefs } from "@/components/site/LogoDefs";
+import { services } from "@/lib/services";
 import { mailtoLink, site, whatsappLink } from "@/lib/site";
 import "./globals.css";
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
   axes: ["opsz"],
 });
@@ -24,11 +26,11 @@ const openGraphImage = {
   alt: site.title,
 } as const;
 
-const brandIconImage = {
-  url: site.assets.brandIcon,
+const symbolImage = {
+  url: site.assets.symbol,
   width: 512,
   height: 512,
-  alt: `${site.name} icon`,
+  alt: `${site.name} symbol`,
 } as const;
 
 export const metadata: Metadata = {
@@ -38,18 +40,6 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
-  icons: {
-    icon: [
-      { url: site.assets.favicon, sizes: "48x48" },
-      { url: site.assets.icon, type: "image/png", sizes: "512x512" },
-    ],
-    apple: {
-      url: site.assets.appleIcon,
-      sizes: "180x180",
-      type: "image/png",
-    },
-    shortcut: site.assets.favicon,
-  },
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -57,7 +47,7 @@ export const metadata: Metadata = {
     url: site.url,
     title: site.title,
     description: site.description,
-    images: [openGraphImage, brandIconImage],
+    images: [openGraphImage, symbolImage],
   },
   twitter: {
     card: "summary_large_image",
@@ -65,6 +55,10 @@ export const metadata: Metadata = {
     description: site.description,
     images: [openGraphImage],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#6F61C8",
 };
 
 export default function RootLayout({
@@ -75,16 +69,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fraunces.variable} ${jakarta.variable} h-full antialiased`}
+      className={`${bricolage.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
+        <LogoDefs />
         <JsonLd
           data={{
             "@context": "https://schema.org",
-            "@type": "ProfessionalService",
+            "@type": ["Organization", "ProfessionalService"],
+            "@id": `${site.url}/#organization`,
             name: site.name,
             url: site.url,
-            logo: `${site.url}${site.assets.brandIcon}`,
+            logo: `${site.url}${site.assets.logo}`,
             image: `${site.url}${site.assets.openGraph}`,
             description: site.description,
             email: site.email,
@@ -98,13 +94,27 @@ export default function RootLayout({
               url: mailtoLink,
             },
             knowsAbout: [
+              "Software development",
               "Web design",
               "Next.js development",
-              "Website redesign",
-              "Website performance optimization",
+              "Search engine optimisation",
               "Technical SEO",
-              "Shopify development",
+              "AI consulting",
+              "Marketing technology",
             ],
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Services",
+              itemListElement: services.map((service) => ({
+                "@type": "Offer",
+                itemOffered: {
+                  "@type": "Service",
+                  name: service.label,
+                  serviceType: service.serviceType,
+                  url: `${site.url}/services/${service.slug}`,
+                },
+              })),
+            },
           }}
         />
         <Header />

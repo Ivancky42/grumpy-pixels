@@ -2,28 +2,30 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Card } from "@/components/ui/Card";
+import { prefersReducedMotion } from "@/lib/motion";
+import { useInView } from "@/lib/use-in-view";
 
-type Stat = {
+export type Stat = {
   value: string;
   label: string;
-  tint: "white" | "lavender" | "blush" | "mint";
+  tint: "white" | "lavender" | "blush";
 };
 
 export const speedStats: Stat[] = [
   {
     value: "53%",
     label: "of mobile visitors leave a site that takes over 3 seconds to load",
-    tint: "lavender",
+    tint: "white",
   },
   {
     value: "2x",
     label: "slow pages can double bounce rates and halve conversions",
-    tint: "blush",
+    tint: "white",
   },
   {
     value: "#1",
     label: "Google uses page experience and Core Web Vitals in ranking",
-    tint: "mint",
+    tint: "lavender",
   },
   {
     value: "<1s",
@@ -31,33 +33,6 @@ export const speedStats: Stat[] = [
     tint: "white",
   },
 ];
-
-export const designStats: Stat[] = [
-  {
-    value: "0.05s",
-    label: "is all it takes for visitors to form a first impression of your website",
-    tint: "blush",
-  },
-  {
-    value: "75%",
-    label: "of people judge a business's credibility by its website design",
-    tint: "lavender",
-  },
-  {
-    value: "94%",
-    label: "of first impressions are design-related — before anyone reads a word",
-    tint: "white",
-  },
-  {
-    value: "88%",
-    label: "of users won't return after a bad experience on a website",
-    tint: "mint",
-  },
-];
-
-function prefersReducedMotion() {
-  return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-}
 
 /** Counts the numeric part of a stat (e.g. "53%", "<1s", "0.05s") up from zero. */
 function CountUpValue({ value, play }: { value: string; play: boolean }) {
@@ -122,30 +97,22 @@ function TiltCard({
   );
 }
 
-export function StatsRow({ stats }: { stats: Stat[] }) {
-  const gridRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
+const lgColumns = { 3: "lg:grid-cols-3", 4: "lg:grid-cols-4" } as const;
 
-  useEffect(() => {
-    const el = gridRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
+export function StatsRow({
+  stats,
+  columns = 4,
+}: {
+  stats: Stat[];
+  /** Columns at the lg breakpoint */
+  columns?: 3 | 4;
+}) {
+  const [gridRef, inView] = useInView<HTMLDivElement>({ threshold: 0.15 });
 
   return (
     <div
       ref={gridRef}
-      className="grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
+      className={`grid gap-4 sm:grid-cols-2 sm:gap-6 ${lgColumns[columns]}`}
     >
       {stats.map((stat, i) => (
         <div
@@ -156,10 +123,10 @@ export function StatsRow({ stats }: { stats: Stat[] }) {
           }`}
         >
           <TiltCard tint={stat.tint}>
-            <p className="font-display text-4xl font-semibold text-navy">
+            <p className="font-display text-4xl font-bold tracking-[-0.02em] text-ink">
               <CountUpValue value={stat.value} play={inView} />
             </p>
-            <p className="mt-2 text-sm text-navy-soft">{stat.label}</p>
+            <p className="mt-2 text-sm text-ink-soft">{stat.label}</p>
           </TiltCard>
         </div>
       ))}

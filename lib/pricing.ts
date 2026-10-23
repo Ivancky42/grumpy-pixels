@@ -8,7 +8,7 @@ export type PricingTier = {
   perfectFor: string[];
   includes: string[];
   timeline: string;
-  tint: "lavender" | "blush" | "mint";
+  tint: "white" | "lavender" | "blush";
 };
 
 export const tiers: PricingTier[] = [
@@ -35,7 +35,7 @@ export const tiers: PricingTier[] = [
       "Analytics integration",
     ],
     timeline: "2–4 weeks",
-    tint: "lavender",
+    tint: "white",
   },
   {
     slug: "grow",
@@ -60,7 +60,7 @@ export const tiers: PricingTier[] = [
       "Content strategy guidance",
     ],
     timeline: "4–8 weeks",
-    tint: "blush",
+    tint: "lavender",
   },
   {
     slug: "scale",
@@ -84,7 +84,7 @@ export const tiers: PricingTier[] = [
       "Cloud infrastructure planning",
     ],
     timeline: "Depends on scope",
-    tint: "mint",
+    tint: "white",
   },
 ];
 
