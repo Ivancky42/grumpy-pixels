@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Eyebrow } from "@/components/ui/SectionHeading";
-import { BrowMark } from "@/components/site/illustrations/BrowMark";
+import { HeroScene } from "@/components/site/illustrations/HeroScene";
 import { homeCopy } from "@/lib/services";
 
 export function Hero() {
@@ -27,8 +27,8 @@ export function Hero() {
             </div>
             <p className="mt-6 text-sm text-ink-soft">{homeCopy.aside}</p>
           </div>
-          <div className="flex items-center justify-center py-4 lg:py-12">
-            <BrowMark className="w-48 sm:w-64 lg:w-80" />
+          <div className="mx-auto w-full max-w-md lg:max-w-none">
+            <HeroScene />
           </div>
         </div>
       </Container>

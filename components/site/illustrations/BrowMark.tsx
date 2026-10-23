@@ -10,7 +10,7 @@ type Props = {
  * The symbol's four shapes (flat brow, raised brow, two eyes) assembling with
  * a staggered reveal. Pure CSS (`.brow-in` in globals.css), static under
  * prefers-reduced-motion. The expression never changes — only the entrance.
- * Decorative: used once, in the home hero.
+ * Decorative: used once, on the 404 page.
  */
 export function BrowMark({ className = "", delay = 150 }: Props) {
   // Eyes first, then the flat brow, then the raised brow — the reaction lands last.

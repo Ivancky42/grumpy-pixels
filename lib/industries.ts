@@ -13,7 +13,17 @@ export type Industry = {
   quip: string;
   /** Singular noun for CTA copy, e.g. "Need a website for your {ctaNoun}?" */
   ctaNoun: string;
+  /** Which isometric building `IndustryScene` draws for this industry */
+  scene: IndustrySceneName;
 };
+
+export type IndustrySceneName =
+  | "clinic"
+  | "restaurant"
+  | "law"
+  | "property"
+  | "gym"
+  | "tuition";
 
 export const industries: Industry[] = [
   {
@@ -72,6 +82,7 @@ export const industries: Industry[] = [
     ],
     quip: "Your patients shouldn't need patience.",
     ctaNoun: "clinic",
+    scene: "clinic",
   },
   {
     slug: "restaurants",
@@ -129,6 +140,7 @@ export const industries: Industry[] = [
     ],
     quip: "PDF menus. Don't get us started.",
     ctaNoun: "restaurant or cafe",
+    scene: "restaurant",
   },
   {
     slug: "law-firms",
@@ -186,6 +198,7 @@ export const industries: Industry[] = [
     ],
     quip: "We object to slow websites.",
     ctaNoun: "law firm",
+    scene: "law",
   },
   {
     slug: "property-agencies",
@@ -243,6 +256,7 @@ export const industries: Industry[] = [
     ],
     quip: "Location, location, loading speed.",
     ctaNoun: "property agency",
+    scene: "property",
   },
   {
     slug: "gyms",
@@ -300,6 +314,7 @@ export const industries: Industry[] = [
     ],
     quip: "Slow websites skip leg day.",
     ctaNoun: "gym or studio",
+    scene: "gym",
   },
   {
     slug: "tuition-centres",
@@ -357,6 +372,7 @@ export const industries: Industry[] = [
     ],
     quip: "We grade websites. Most get an F.",
     ctaNoun: "tuition centre",
+    scene: "tuition",
   },
 ];
 

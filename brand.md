@@ -121,7 +121,7 @@ Contrast pairs from the kit: ink on cream 13.9:1; violet on cream 4.7:1; cream o
 
 Calm · Confident · Editorial · Bespoke · Precise · Fast · Trustworthy
 
-Cream canvas, large tight headlines, generous whitespace, hairline borders, soft shadows. Illustrations are geometric diagrams that explain a mechanism (a traced SEO change, an efficiency loop, a page loading), built from the mark's vocabulary of rounded bars and circles. Animation reveals once, on scroll, and respects reduced motion. Not startup-loud, not corporate-grey, not retro.
+Cream canvas, large tight headlines, generous whitespace, hairline borders, soft shadows. Illustrations are isometric scenes in one shared kit (30° projection, the palette's tones, soft shading, a dotted paper ground plate): one per page, plus geometric diagrams that explain a mechanism (a traced SEO change, an efficiency loop, a page loading). No people or characters, no text inside scenes, and the mark is never drawn into a scene. Animation reveals once, on scroll, and respects reduced motion. Not startup-loud, not corporate-grey, not retro.
 
 ## 10. Performance bar (non-negotiable)
 

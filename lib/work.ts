@@ -7,9 +7,11 @@ export type Project = {
   tags: string[];
   problem: string;
   outcome: string;
-  image: string;
-  imageAlt: string;
+  /** Which isometric scene stands in for the screenshot on the home page */
+  scene: ProjectSceneName;
 };
+
+export type ProjectSceneName = "event" | "agency";
 
 export const projects: Project[] = [
   {
@@ -24,9 +26,7 @@ export const projects: Project[] = [
       "Malaysia's national association of plastic surgeons needed a dedicated home for its 29th Annual Scientific Congress in Penang — registration tiers, a three-day programme, international speakers, sponsorship packages and hotel bookings, all in one place.",
     outcome:
       "A polished congress website built with Next.js, with Shopify e-commerce checkout for delegate registration tickets and official merchandise, plus a detailed daily programme, speaker and committee showcases, and sponsorship and accommodation info — everything attendees need before they land in Penang.",
-    image: "/work/mapacs.png",
-    imageAlt:
-      "Screenshot of the MAPACS 29th Annual Scientific Congress 2026 event website",
+    scene: "event",
   },
   {
     slug: "personedge",
@@ -39,7 +39,6 @@ export const projects: Project[] = [
       "An award-winning creative agency needed a site as scroll-stopping as its campaigns — bold, fast, and able to showcase work for brands like Samsung, AIA, TNB and Lazada.",
     outcome:
       "A high-energy, animation-rich marketing site built with Next.js, Payload CMS and a Neon Postgres database — easy for the team to update, and fast despite the visual punch. Proof that personality and performance can coexist.",
-    image: "/work/personedge.png",
-    imageAlt: "Screenshot of the PersonEdge website homepage",
+    scene: "agency",
   },
 ];

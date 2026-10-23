@@ -34,8 +34,6 @@ export type Service = {
   /** schema.org Service.serviceType */
   serviceType: string;
   keywords: string[];
-  /** Which diagram the page renders */
-  illustration: "software" | "seo-trace" | "efficiency-loop";
 };
 
 export const services: Service[] = [
@@ -149,7 +147,6 @@ export const services: Service[] = [
       "website redesign malaysia",
       "shopify developer malaysia",
     ],
-    illustration: "software",
   },
   {
     slug: "seo",
@@ -268,7 +265,6 @@ export const services: Service[] = [
       "seo campaign platform",
       "seo management software",
     ],
-    illustration: "seo-trace",
   },
   {
     slug: "consultancy",
@@ -383,7 +379,6 @@ export const services: Service[] = [
       "marketing technology consultant malaysia",
       "digital transformation consultant malaysia",
     ],
-    illustration: "efficiency-loop",
   },
 ];
 

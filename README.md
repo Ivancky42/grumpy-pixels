@@ -26,7 +26,10 @@ pnpm start    # serve the production build
 | `lib/services.ts` | Three service pillars: copy, metadata, FAQ, CTA — drives /services pages, menu and home cards |
 | `lib/navigation.ts` | Header/footer menu structure |
 | `components/site/Logo.tsx` | Inline-SVG logo lockups from the logo kit |
-| `components/site/illustrations/` | BrowMark, SeoTrace, EfficiencyLoop diagrams |
+| `components/site/illustrations/` | Isometric scenes (HeroScene, PillarSpot, Software/Consultancy/Hub/Work/Pricing/Industry scenes, LostTile) plus BrowMark, SeoTrace, EfficiencyLoop diagrams |
+| `components/site/iso/` + `lib/iso.ts` | Isometric illustration kit: projection, tones, primitives |
+| `components/site/seo-mockups/` + `lib/seo-demo.ts` | Coded Grumpy Pixels SEO mockups with fictional example data |
+| `components/site/service-visuals/` | Hero and showcase visuals per service page |
 | `app/manifest.ts` | Web app manifest |
 | `scripts/make-og.mjs` | Regenerates `app/opengraph-image.png` from the logo lockup |
 | `.claude/launch.json` | Dev-server config for the Claude browser preview |

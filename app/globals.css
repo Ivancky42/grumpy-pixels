@@ -61,3 +61,42 @@ html {
     animation: none;
   }
 }
+
+/*
+ * Reveal-once entrance for isometric scene parts. Put `.rise-in` on a <g> (or
+ * element) that has no `transform` attribute — CSS transforms replace it.
+ * Stagger with `style={riseDelay(ms)}` from lib/iso.ts. Inside a `Reveal`
+ * wrapper the entrance waits until the wrapper scrolls into view.
+ */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  transform-box: fill-box;
+  animation: rise-in 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+/* Only hide while waiting when scripts run; without JS the parts stay visible */
+@media (scripting: enabled) {
+  .reveal[data-inview="false"] .rise-in {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rise-in,
+  .reveal[data-inview="false"] .rise-in {
+    animation: none;
+    opacity: 1;
+  }
+}

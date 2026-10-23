@@ -10,6 +10,9 @@ import { ProjectSlots } from "@/components/site/ProjectSlots";
 import { WorkCard } from "@/components/site/WorkCard";
 import { ProcessSteps, type ProcessStep } from "@/components/site/ProcessSteps";
 import { CtaBanner } from "@/components/site/CtaBanner";
+import { Reveal } from "@/components/site/Reveal";
+import { IsoBox, IsoScene, IsoShadow } from "@/components/site/iso/Iso";
+import { riseDelay, type IsoTone } from "@/lib/iso";
 import { projects } from "@/lib/work";
 
 export const metadata: Metadata = {
@@ -47,6 +50,26 @@ const benefits = [
   "No outsourcing — everything in-house",
 ];
 
+/** Three small slot blocks — two taken, one open (blush) — perched on the slots panel. */
+const slotBlocks: { at: number; h: number; tone: IsoTone }[] = [
+  { at: 0, h: 1.2, tone: "violet" },
+  { at: 1.8, h: 1.2, tone: "lavender" },
+  { at: 3.6, h: 1.6, tone: "blush" },
+];
+
+function SlotBlocks() {
+  return (
+    <IsoScene viewBox={[140, 58]} origin={[20, 29]}>
+      {slotBlocks.map((b, i) => (
+        <g key={b.at} className="rise-in" style={riseDelay(i * 120)}>
+          <IsoShadow at={[b.at, -b.at, 0]} size={[1.2, 1.2]} />
+          <IsoBox at={[b.at, -b.at, 0]} size={[1.2, 1.2, b.h]} tone={b.tone} />
+        </g>
+      ))}
+    </IsoScene>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -54,7 +77,7 @@ export default function Home() {
 
       <PillarCards />
 
-      <section className="py-20 sm:py-28">
+      <section className="bg-lavender-soft/40 py-20 sm:py-28">
         <Container>
           <SectionHeading
             eyebrow="Why speed"
@@ -141,7 +164,12 @@ export default function Home() {
                 things adequately.
               </p>
             </div>
-            <ProjectSlots />
+            <div className="relative rounded-[2rem] bg-blush/35 p-2 sm:p-6">
+              <Reveal className="pointer-events-none absolute -top-8 right-8 w-24 sm:-top-10 sm:w-28">
+                <SlotBlocks />
+              </Reveal>
+              <ProjectSlots />
+            </div>
           </div>
         </Container>
       </section>

@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Eyebrow, SectionHeading } from "@/components/ui/SectionHeading";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { CtaBanner } from "@/components/site/CtaBanner";
+import { IndustryScene } from "@/components/site/illustrations/IndustryScene";
 import { JsonLd } from "@/components/site/JsonLd";
 import { ServiceFaq } from "@/components/site/ServiceFaq";
 import { getIndustry, industries } from "@/lib/industries";
@@ -72,16 +73,21 @@ export default async function IndustryPage({ params }: Props) {
               { label: industry.label },
             ]}
           />
-          <div className="mt-12 max-w-3xl sm:mt-16">
-            <Eyebrow className="mb-3">
-              Web design for {industry.label.toLowerCase()}
-            </Eyebrow>
-            <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
-              {industry.h1}
-            </h1>
-            <p className="mt-6 max-w-2xl text-lg text-ink-soft">
-              {industry.intro}
-            </p>
+          <div className="mt-12 grid items-center gap-12 sm:mt-16 lg:grid-cols-2">
+            <div className="max-w-3xl">
+              <Eyebrow className="mb-3">
+                Web design for {industry.label.toLowerCase()}
+              </Eyebrow>
+              <h1 className="font-display text-4xl font-bold leading-[1.05] tracking-[-0.02em] text-ink sm:text-5xl lg:text-6xl">
+                {industry.h1}
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg text-ink-soft">
+                {industry.intro}
+              </p>
+            </div>
+            <div className="mx-auto w-full max-w-md lg:max-w-none">
+              <IndustryScene scene={industry.scene} />
+            </div>
           </div>
         </Container>
       </section>
